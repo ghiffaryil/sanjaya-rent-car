@@ -34,8 +34,30 @@ if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
 if (isset($_POST['submit_simpan'])) {
     if ($cek_required == "Sukses") {
 
-        $form_field = array("Judul_Pelayanan", "Kategori", "Deskripsi", "Judul_Pelayanan_Eng", "Deskripsi_Eng", "Waktu_Simpan_Data", "Status");
-        $form_value = array("$_POST[Judul_Pelayanan]", "$_POST[Kategori]", "$_POST[Deskripsi]", "$_POST[Judul_Pelayanan_Eng]", "$_POST[Deskripsi_Eng]", "$Waktu_Sekarang", "Aktif");
+        $form_field = array(
+            "Judul_Pelayanan",
+            "Kategori",
+            "Deskripsi",
+            "Judul_Pelayanan_Eng",
+            "Deskripsi_Eng",
+            "Harga",
+            "Fasilitas",
+            "Waktu_Simpan_Data",
+            "Status"
+        );
+
+        $form_value = array(
+            "$_POST[Judul_Pelayanan]",
+            "$_POST[Kategori]",
+            "$_POST[Deskripsi]",
+            "$_POST[Judul_Pelayanan_Eng]",
+            "$_POST[Deskripsi_Eng]",
+            "$_POST[Harga]",
+            "$_POST[Fasilitas]",
+            "$Waktu_Sekarang",
+            "Aktif"
+        );
+
         $result = $a_tambah_baca_update_hapus->tambah_data("tb_pelayanan", $form_field, $form_value, "Iya");
 
         if ($result['Status'] == "Sukses") {
@@ -100,8 +122,8 @@ if (isset($_GET['edit'])) {
 #FUNGSI UPDATE DATA (UPDATE)
 if (isset($_POST['submit_update'])) {
     if ($cek_required == "Sukses") {
-        $form_field = array("Judul_Pelayanan", "Kategori", "Deskripsi", "Judul_Pelayanan_Eng", "Deskripsi_Eng");
-        $form_value = array("$_POST[Judul_Pelayanan]", "$_POST[Kategori]", "$_POST[Deskripsi]", "$_POST[Judul_Pelayanan_Eng]", "$_POST[Deskripsi_Eng]");
+        $form_field = array("Judul_Pelayanan", "Kategori", "Deskripsi", "Judul_Pelayanan_Eng", "Deskripsi_Eng", "Harga", "Fasilitas");
+        $form_value = array("$_POST[Judul_Pelayanan]", "$_POST[Kategori]", "$_POST[Deskripsi]", "$_POST[Judul_Pelayanan_Eng]", "$_POST[Deskripsi_Eng]", "$_POST[Harga]", "$_POST[Fasilitas]");
 
         $form_field_where = array("Id_Pelayanan");
         $form_criteria_where = array("=");
@@ -550,11 +572,11 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                     <table id="example1" class="table table-bordered" style="width:100%">
                                         <thead>
                                             <tr class="bg-light">
-                                                <th style="width:4%;">No</th>
-                                                <th style="width:25%;">Mobil</th>
-                                                <th style="width:15%;">Kategori</th>
+                                                <th style="width:5%;">No</th>
+                                                <th style="width:20%;">Mobil</th>
+                                                <th style="width:20%;">Kategori</th>
                                                 <th style="width:25%;">Deskripsi</th>
-                                                <th style="width:20%;">Cover</th>
+                                                <th style="width:25%;">Cover</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -584,13 +606,23 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                                 <?php echo $data['Judul_Pelayanan'] ?>
                                                             </a>
                                                         </td>
-                                                        <td><?php echo $data['Kategori'] ?></td>
-                                                        <td><?php echo substr($data['Deskripsi'], 0, 100); ?>...</td>
+                                                        <td>
+                                                            <?php
+                                                            $result_kategori = $a_tambah_baca_update_hapus->baca_data_id("tb_pelayanan_kategori", "Id_Pelayanan_Kategori", $data['Kategori']);
+
+                                                            if ($result_kategori['Status'] == "Sukses") {
+                                                                $data_kategori = $result_kategori['Hasil'];
+                                                                echo $data_kategori['Nama_Pelayanan_Kategori'];
+                                                            }
+
+                                                            ?>
+                                                        </td>
+                                                        <td><?php echo $a_format_angka->rupiah($data['Harga']); ?>/hari</td>
                                                         <td>
                                                             <?php
                                                             if ($data['Cover_Pelayanan'] <> "") {
                                                             ?>
-                                                                <img src="media/pelayanan/cover/<?php echo $data['Cover_Pelayanan'] ?>?time=<?php echo $Waktu_Sekarang ?>" style="width: 100px; height: auto">
+                                                                <img src="media/pelayanan/cover/<?php echo $data['Cover_Pelayanan'] ?>?time=<?php echo $Waktu_Sekarang ?>" style="width: 150px; height: auto">
                                                             <?php
                                                             }
                                                             ?>
