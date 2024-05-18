@@ -112,6 +112,7 @@
 						</a>
 						<ul class="treeview-menu">
 							<li><a href="?menu=pelayanan"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Pelayanan</a></li>
+							<li><a href="?menu=pelayanan-kategori"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Kategori</a></li>
 						</ul>
 					</li>
 

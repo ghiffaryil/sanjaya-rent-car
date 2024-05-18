@@ -34,7 +34,7 @@ if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
 if (isset($_POST['submit_simpan'])) {
     if ($cek_required == "Sukses") {
 
-        $form_field = array("Judul_Pelayanan", "Kategori", "Deskripsi","Judul_Pelayanan_Eng","Deskripsi_Eng", "Waktu_Simpan_Data", "Status");
+        $form_field = array("Judul_Pelayanan", "Kategori", "Deskripsi", "Judul_Pelayanan_Eng", "Deskripsi_Eng", "Waktu_Simpan_Data", "Status");
         $form_value = array("$_POST[Judul_Pelayanan]", "$_POST[Kategori]", "$_POST[Deskripsi]", "$_POST[Judul_Pelayanan_Eng]", "$_POST[Deskripsi_Eng]", "$Waktu_Sekarang", "Aktif");
         $result = $a_tambah_baca_update_hapus->tambah_data("tb_pelayanan", $form_field, $form_value, "Iya");
 
@@ -100,7 +100,7 @@ if (isset($_GET['edit'])) {
 #FUNGSI UPDATE DATA (UPDATE)
 if (isset($_POST['submit_update'])) {
     if ($cek_required == "Sukses") {
-        $form_field = array("Judul_Pelayanan", "Kategori", "Deskripsi","Judul_Pelayanan_Eng","Deskripsi_Eng");
+        $form_field = array("Judul_Pelayanan", "Kategori", "Deskripsi", "Judul_Pelayanan_Eng", "Deskripsi_Eng");
         $form_value = array("$_POST[Judul_Pelayanan]", "$_POST[Kategori]", "$_POST[Deskripsi]", "$_POST[Judul_Pelayanan_Eng]", "$_POST[Deskripsi_Eng]");
 
         $form_field_where = array("Id_Pelayanan");
@@ -377,7 +377,7 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                             <hr>
                                             <div class="col-md-12">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-3 control-label">Judul Pelayanan</label>
+                                                    <label class="col-lg-3 control-label">Mobil</label>
                                                     <div class="col-lg-9">
                                                         <input type="text" class="form-control" name="Judul_Pelayanan" value="<?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
                                                                                                                                     echo $_POST['Judul_Pelayanan'];
@@ -388,15 +388,15 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-12">
+                                            <div class="col-md-12 d-none">
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 control-label"><i>Title (en)</i></label>
                                                     <div class="col-lg-9">
                                                         <input type="text" class="form-control" name="Judul_Pelayanan_Eng" value="<?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
-                                                                                                                                    echo $_POST['Judul_Pelayanan_Eng'];
-                                                                                                                                } elseif (isset($_GET['edit'])) {
-                                                                                                                                    echo $edit['Judul_Pelayanan_Eng'];
-                                                                                                                                } ?>">
+                                                                                                                                        echo $_POST['Judul_Pelayanan_Eng'];
+                                                                                                                                    } elseif (isset($_GET['edit'])) {
+                                                                                                                                        echo $edit['Judul_Pelayanan_Eng'];
+                                                                                                                                    } ?>">
                                                     </div>
                                                 </div>
                                             </div>
@@ -405,11 +405,32 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 control-label">Kategori</label>
                                                     <div class="col-lg-9">
-                                                        <input type="text" class="form-control" name="Kategori" value="<?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
-                                                                                                                            echo $_POST['Kategori'];
-                                                                                                                        } elseif (isset($_GET['edit'])) {
-                                                                                                                            echo $edit['Kategori'];
-                                                                                                                        } ?>">
+
+                                                        <select name="Kategori" id="Kategori" class="form-select">
+
+                                                            <?php
+                                                            $search_field_where = array("Status");
+                                                            $search_criteria_where = array("=");
+                                                            $search_value_where = array("Aktif");
+                                                            $search_connector_where = array("");
+
+                                                            $result_kategori = $a_tambah_baca_update_hapus->baca_data_dengan_filter("tb_pelayanan_kategori", $search_field_where, $search_criteria_where, $search_value_where, $search_connector_where);
+
+                                                            if ($result_kategori['Status'] == "Sukses") {
+                                                                $data_hasil_kategori = $result_kategori['Hasil'];
+                                                                foreach ($data_hasil_kategori as $data_kategori) {
+                                                            ?>
+                                                                    <option value="<?php echo $data_kategori['Id_Pelayanan_Kategori']; ?>" <?php if (isset($_GET['edit'])) {
+                                                                                                                                                if ($edit['Kategori'] == $data_kategori['Id_Pelayanan_Kategori']) {
+                                                                                                                                                    echo "selected";
+                                                                                                                                                }
+                                                                                                                                            } ?>><?php echo $data_kategori['Nama_Pelayanan_Kategori']; ?></option>
+                                                            <?php
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </select>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -418,7 +439,7 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 control-label">Deskripsi</label>
                                                     <div class="col-lg-9">
-                                                        <textarea rows="12" class="form-control" name="Deskripsi"><?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
+                                                        <textarea rows="2" class="form-control" name="Deskripsi"><?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
                                                                                                                         echo $_POST['Deskripsi'];
                                                                                                                     } elseif (isset($_GET['edit'])) {
                                                                                                                         echo $edit['Deskripsi'];
@@ -426,16 +447,45 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                     </div>
                                                 </div>
                                             </div>
-                                           
-                                            <div class="col-md-12">
+
+                                            <div class="col-md-12 d-none">
                                                 <div class="form-group row">
                                                     <label class="col-lg-3 control-label">Description</label>
                                                     <div class="col-lg-9">
-                                                        <textarea rows="12" class="form-control" name="Deskripsi_Eng"><?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
-                                                                                                                        echo $_POST['Deskripsi_Eng'];
-                                                                                                                    } elseif (isset($_GET['edit'])) {
-                                                                                                                        echo $edit['Deskripsi_Eng'];
-                                                                                                                    } ?></textarea>
+                                                        <textarea rows="4" class="form-control" name="Deskripsi_Eng"><?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
+                                                                                                                            echo $_POST['Deskripsi_Eng'];
+                                                                                                                        } elseif (isset($_GET['edit'])) {
+                                                                                                                            echo $edit['Deskripsi_Eng'];
+                                                                                                                        } ?></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 control-label">Harga (/per hari)</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="number" class="form-control" name="Harga" value="<?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
+                                                                                                                            echo $_POST['Harga'];
+                                                                                                                        } elseif (isset($_GET['edit'])) {
+                                                                                                                            echo $edit['Harga'];
+                                                                                                                        } ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-3 control-label">Fasilitas</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" class="form-control" name="Fasilitas" value="<?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
+                                                                                                                            echo $_POST['Fasilitas'];
+                                                                                                                        } elseif (isset($_GET['edit'])) {
+                                                                                                                            echo $edit['Fasilitas'];
+                                                                                                                        } ?>" placeholder="Driver;Sopir;E-Toll">
+
+                                                        <font style="font-size: 11px; color: gray;">Pisahkan dengan titik koma ( ; )</font>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -501,7 +551,7 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                         <thead>
                                             <tr class="bg-light">
                                                 <th style="width:4%;">No</th>
-                                                <th style="width:25%;">Judul Pelayanan</th>
+                                                <th style="width:25%;">Mobil</th>
                                                 <th style="width:15%;">Kategori</th>
                                                 <th style="width:25%;">Deskripsi</th>
                                                 <th style="width:20%;">Cover</th>
@@ -535,7 +585,7 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                             </a>
                                                         </td>
                                                         <td><?php echo $data['Kategori'] ?></td>
-                                                        <td><?php echo substr($data['Deskripsi'],0, 100); ?>...</td>
+                                                        <td><?php echo substr($data['Deskripsi'], 0, 100); ?>...</td>
                                                         <td>
                                                             <?php
                                                             if ($data['Cover_Pelayanan'] <> "") {
