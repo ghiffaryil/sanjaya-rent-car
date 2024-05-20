@@ -26,11 +26,11 @@
       <div class="row">
 
 
-        <div class="col-xl-4 col-lg-4 col-12 d-none">
+        <div class="col-xl-6 col-lg-6 col-12">
           <div class="box" style="height:450px;">
             <div class="box-header">
               <h4 class="box-title">Summary</h4>
-              <a class="box-controls pull-right d-md-flex d-none" style="cursor: pointer;">
+              <a class="box-controls pull-right d-md-flex" style="cursor: pointer;">
                 View All
               </a>
             </div>
@@ -42,19 +42,6 @@
                     <div class="ms-20">
                       <h4 class="text-white mb-0">0 </h4>
                       <h5 class="text-white-50 mb-0">Total Pengunjung Situs</h5>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-
-              <a href="?menu=kontak" class="box bg-warning bg-hover-warning pull-up">
-                <div class="box-body">
-                  <div class="d-flex align-items-center">
-                    <span class="text-white mdi mdi-account-multiple-plus fs-36"></span>
-                    <div class="ms-20">
-                      <h4 class="text-white mb-0">0 </h4>
-                      <h5 class="text-white-50 mb-0">Total Kontak</h5>
                     </div>
                   </div>
                 </div>
@@ -75,7 +62,7 @@
           </div>
         </div>
 
-        <div class="col-xl-4 col-lg-4 col-12">
+        <div class="col-xl-6 col-lg-6 col-12">
           <div class="box" style="height:450px;">
             <div class="box-header">
               <h4 class="box-title">Last 10 Testimoni</h4>
@@ -132,7 +119,7 @@
           </div>
         </div>
 
-        <div class="col-xl-4 col-lg-4 col-12">
+        <div class="col-xl-6 col-lg-6 col-12">
           <div class="box" style="height:450px;">
             <div class="box-header">
               <h4 class="box-title">Last 5 Kontak</h4>
@@ -190,7 +177,7 @@
 
 
 
-        <div class="col-xl-4 col-lg-4 col-12">
+        <div class="col-xl-6 col-lg-6 col-12">
           <div class="box" style="height:450px;">
             <div class="box-header">
               <h4 class="box-title">Last 10 Newsletter</h4>
