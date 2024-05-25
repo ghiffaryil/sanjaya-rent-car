@@ -8,7 +8,7 @@
               <div class="row align-items-center">
                 <div class="col-12 col-lg-9 text-left">
                   <div style="padding-left: 3em;">
-                    <h1>Selamat datang <b><?php echo $u_Nama_Lengkap; ?></b></h1>
+                    <h1 style="color: #249ea1;">Selamat datang <b><?php echo $u_Nama_Lengkap; ?></b></h1>
                   </div>
                 </div>
                 <div class="col-12 col-lg-3 text-center"><img src="../frontend/assets/media/logo/logo_main.jpg" style="height: 200px; width:auto; padding:2em" alt=""></div>

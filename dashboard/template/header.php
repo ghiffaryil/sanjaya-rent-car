@@ -7,7 +7,7 @@
 		<a href="dashboard.php" class="logo">
 			<!-- logo-->
 			<div class="logo-lg">
-				<span class="light-logo">Sanjaya Rental Mobil</span>
+				<span class="light-logo" style="color: #249ea1;">Sanjaya Rental Mobil</span>
 				<!-- <span class="dark-logo"><img src="images/logo-light-text.png" alt="logo"></span> -->
 			</div>
 		</a>
