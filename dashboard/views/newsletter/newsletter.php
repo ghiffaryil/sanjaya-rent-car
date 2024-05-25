@@ -38,8 +38,8 @@ if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
 if (isset($_POST['submit_simpan'])) {
     if ($cek_required == "Sukses") {
 
-        $form_field = array("Email", "Waktu_Simpan_Data", "Status");
-        $form_value = array("$_POST[Email]", "$Waktu_Sekarang", "Aktif");
+        $form_field = array("Nama", "Email", "Waktu_Simpan_Data", "Status");
+        $form_value = array("$_POST[Nama]", "$_POST[Email]", "$Waktu_Sekarang", "Aktif");
 
         $result = $a_tambah_baca_update_hapus->tambah_data("tb_newsletter", $form_field, $form_value);
 
@@ -74,8 +74,8 @@ if (isset($_GET['edit'])) {
 #FUNGSI UPDATE DATA (UPDATE)
 if (isset($_POST['submit_update'])) {
     if ($cek_required == "Sukses") {
-        $form_field = array("Email");
-        $form_value = array("$_POST[Email]");
+        $form_field = array("Nama", "Email");
+        $form_value = array("$_POST[Nama]", "$_POST[Email]");
 
         $form_field_where = array("Id_Newsletter");
         $form_criteria_where = array("=");
@@ -326,6 +326,17 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
 
                                             <div class="col-md-12">
                                                 <div class="form-group row">
+                                                    <label class="col-lg-3 control-label">Nama</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" class="form-control" name="Nama" value="<?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
+                                                                                                                        echo $_POST['Nama'];
+                                                                                                                    } elseif (isset($_GET['edit'])) {
+                                                                                                                        echo $edit['Nama'];
+                                                                                                                    } ?>">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group row">
                                                     <label class="col-lg-3 control-label">Email</label>
                                                     <div class="col-lg-9">
                                                         <input type="text" class="form-control" name="Email" value="<?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
@@ -376,8 +387,9 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                         <thead>
                                             <tr class="bg-light">
                                                 <th style="width:4%;">No</th>
-                                                <th style="width:26%;">Email</th>
-                                                <th style="width:26%;">Action</th>
+                                                <th style="width:20%;">Email</th>
+                                                <th style="width:20%;">Nama</th>
+                                                <th style="width:20%;">Action</th>
                                                 <th style="width:15%;">Waktu</th>
                                                 <th style="width:15%;">Status</th>
                                             </tr>
@@ -410,6 +422,7 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                                 <?php echo $data['Email'] ?>
                                                             </a>
                                                         </td>
+                                                        <td><?php echo $data['Nama'] ?></td>
                                                         <td><a href="mailto:<?php echo $data['Email']; ?>" target="_blank" class="btn btn-sm btn-success"><?php echo $data['Email'] ?></a></td>
                                                         <td><?php echo tanggal_dan_waktu_24_jam_indonesia($data['Waktu_Simpan_Data']); ?></td>
                                                         <td><?php echo $data['Status'] ?></td>

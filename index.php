@@ -4,6 +4,17 @@
 <?php include "frontend/template/header.php" ?>
 
 <body>
+
+    <?php 
+
+    include "app/config/function/init.php";
+
+    $result_website = $a_tambah_baca_update_hapus->baca_data_id("tb_pengaturan_website", "Id_Pengaturan_Website", "1");
+    $data_website = $result_website['Hasil'];
+    ?>
+
+
+
     <!-- Top Bar Start -->
     <?php include "frontend/template/topbar.php" ?>
     <!-- Top Bar End -->

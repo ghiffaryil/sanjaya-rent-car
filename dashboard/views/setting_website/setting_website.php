@@ -303,22 +303,22 @@ if (isset($_POST['submit_update'])) {
 												<div class="form-group row">
 													<label class="col-lg-2 control-label">Deskripsi Singkat</label>
 													<div class="col-lg-10"><textarea <?php if ($u_Sebagai <> "Super Administrator") {
-																						echo "readonly";
-																					} ?> rows="3" class="form-control" name="Deskripsi_Singkat"><?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
-																																						echo $_POST['Deskripsi_Singkat'];
-																																					} else {
-																																						echo $edit['Deskripsi_Singkat'];
-																																					} ?></textarea>
+																							echo "readonly";
+																						} ?> rows="3" class="form-control" name="Deskripsi_Singkat"><?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
+																																					echo $_POST['Deskripsi_Singkat'];
+																																				} else {
+																																					echo $edit['Deskripsi_Singkat'];
+																																				} ?></textarea>
 													</div>
 
 													<label class="col-lg-2 control-label d-none">Short Description (en)</label>
 													<div class="col-lg-4 d-none"><textarea <?php if ($u_Sebagai <> "Super Administrator") {
-																						echo "readonly";
-																					} ?> rows="3" class="form-control" name="Deskripsi_Singkat_Eng"><?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
-																																							echo $_POST['Deskripsi_Singkat_Eng'];
-																																						} else {
-																																							echo $edit['Deskripsi_Singkat_Eng'];
-																																						} ?></textarea>
+																								echo "readonly";
+																							} ?> rows="3" class="form-control" name="Deskripsi_Singkat_Eng"><?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
+																																						echo $_POST['Deskripsi_Singkat_Eng'];
+																																					} else {
+																																						echo $edit['Deskripsi_Singkat_Eng'];
+																																					} ?></textarea>
 													</div>
 												</div>
 
@@ -328,10 +328,10 @@ if (isset($_POST['submit_update'])) {
 														<textarea <?php if ($u_Sebagai <> "Super Administrator") {
 																		echo "readonly";
 																	} ?> rows="6" class="form-control" name="Deskripsi_Lengkap"><?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
-																																		echo $_POST['Deskripsi_Lengkap'];
-																																	} else {
-																																		echo $edit['Deskripsi_Lengkap'];
-																																	} ?></textarea>
+																																	echo $_POST['Deskripsi_Lengkap'];
+																																} else {
+																																	echo $edit['Deskripsi_Lengkap'];
+																																} ?></textarea>
 													</div>
 												</div>
 
@@ -341,10 +341,10 @@ if (isset($_POST['submit_update'])) {
 														<textarea <?php if ($u_Sebagai <> "Super Administrator") {
 																		echo "readonly";
 																	} ?> rows="6" class="form-control" name="Deskripsi_Lengkap_Eng"><?php if ((isset($_POST['submit_simpan'])) or (isset($_POST['submit_update']))) {
-																																			echo $_POST['Deskripsi_Lengkap_Eng'];
-																																		} else {
-																																			echo $edit['Deskripsi_Lengkap_Eng'];
-																																		} ?></textarea>
+																																		echo $_POST['Deskripsi_Lengkap_Eng'];
+																																	} else {
+																																		echo $edit['Deskripsi_Lengkap_Eng'];
+																																	} ?></textarea>
 													</div>
 												</div>
 											</fieldset>
