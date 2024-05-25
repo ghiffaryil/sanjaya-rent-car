@@ -47,17 +47,12 @@
 						<i class="icon-Expand-arrows"><span class="path1"></span><span class="path2"></span></i>
 					</a>
 				</li>
-				
+
 				<!-- User Account-->
-				<li class="dropdown user user-menu">
-					<a href="#" class="waves-effect waves-light dropdown-toggle" data-bs-toggle="dropdown" title="User">
-						<i class="icon-User"><span class="path1"></span><span class="path2"></span></i>
+				<li class="user user-menu">
+					<a href="logout.php" onclick="return confirm('Anda yakin ingin keluar dari halaman ini?')" class="waves-effect waves-light dropdown-toggle" title="User">
+						<i class="mdi mdi-power" style="color: red;"><span class="path1"></span><span class="path2"></span></i>
 					</a>
-					<ul class="dropdown-menu animated flipInX">
-						<li class="user-body">
-							<a class="dropdown-item" href="logout.php"><i class="ti-lock text-muted me-2"></i> Logout</a>
-						</li>
-					</ul>
 				</li>
 
 			</ul>

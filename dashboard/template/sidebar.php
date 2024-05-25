@@ -50,8 +50,8 @@
 
 					<li class="treeview">
 						<a href="#">
-							<i class="icon-Settings"><span class="path1"></span><span class="path2"></span></i>
-							<span>Main Menu</span>
+							<i class="icon-Home"><span class="path1"></span><span class="path2"></span></i>
+							<span>Dashboard</span>
 							<span class="pull-right-container">
 								<i class="fa fa-angle-right pull-right"></i>
 							</span>
