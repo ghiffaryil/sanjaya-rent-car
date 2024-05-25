@@ -8,10 +8,10 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto">
-                    <a href="index.html" class="nav-item nav-link active">Beranda</a>
-                    <a href="about.html" class="nav-item nav-link">Tentang Kami</a>
+                    <a href="index.php" class="nav-item nav-link active">Beranda</a>
+                    <a href="?view=about" class="nav-item nav-link">Tentang Kami</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Layanan</a>
+                        <a href="?view=services" class="nav-link dropdown-toggle" data-toggle="dropdown">Layanan</a>
                         <div class="dropdown-menu">
                             <a href="blog.html" class="dropdown-item">Blog Grid</a>
                             <a href="single.html" class="dropdown-item">Detail Page</a>
@@ -19,10 +19,10 @@
                             <a href="booking.html" class="dropdown-item">Schedule Booking</a>
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Kontak</a>
+                    <a href="?view=contact" class="nav-item nav-link">Kontak</a>
                 </div>
                 <div class="ml-auto">
-                    <a class="btn btn-custom" href="#">Hubungi Kami</a>
+                    <a class="btn btn-custom" href="http://wa.me/<?php echo $data_website['Nomor_CS']?>">Hubungi Kami</a>
                 </div>
             </div>
         </nav>
