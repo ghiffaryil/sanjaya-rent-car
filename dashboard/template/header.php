@@ -26,14 +26,14 @@
 				</li>
 
 				<li class="user user-menu">
-					<a href="?menu=testimoni" class="waves-effect waves-light dropdown-toggle" title="User">
-						<i class="icon-Chat"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+					<a href="?menu=pelayanan" class="waves-effect waves-light dropdown-toggle" title="User">
+						<i class="mdi mdi-newspaper"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
 					</a>
 				</li>
 
 				<li class="user user-menu">
-					<a href="?menu=kontak" class="waves-effect waves-light dropdown-toggle" title="User">
-						<i class="icon-Phone"><span class="path1"></span><span class="path2"></span></i>
+					<a href="?menu=newsletter" class="waves-effect waves-light dropdown-toggle" title="User">
+						<i class="mdi mdi-email"><span class="path1"></span><span class="path2"></span></i>
 					</a>
 				</li>
 			</ul>

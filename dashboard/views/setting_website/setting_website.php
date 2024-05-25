@@ -481,7 +481,7 @@ if (isset($_POST['submit_update'])) {
 										<div class="col-lg-6">
 
 											<div class="form-group row">
-												<label class="col-lg-4 control-label">Account Twitter</label>
+												<label class="col-lg-4 control-label">Account Tiktok</label>
 												<div class="col-lg-8">
 													<input <?php if ($u_Sebagai <> "Super Administrator") {
 																echo "readonly";
@@ -495,7 +495,7 @@ if (isset($_POST['submit_update'])) {
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group row">
-												<label class="col-lg-4 control-label">Link Twitter</label>
+												<label class="col-lg-4 control-label">Link Tiktok</label>
 												<div class="col-lg-8">
 													<input <?php if ($u_Sebagai <> "Super Administrator") {
 																echo "readonly";
@@ -508,7 +508,7 @@ if (isset($_POST['submit_update'])) {
 											</div>
 
 										</div>
-										<div class="col-lg-6">
+										<div class="col-lg-6 d-none">
 
 											<div class="form-group row">
 												<label class="col-lg-4 control-label">Account Linked In</label>
@@ -523,7 +523,7 @@ if (isset($_POST['submit_update'])) {
 												</div>
 											</div>
 										</div>
-										<div class="col-lg-6">
+										<div class="col-lg-6 d-none">
 
 											<div class="form-group row">
 												<label class="col-lg-4 control-label">URL Linked In</label>

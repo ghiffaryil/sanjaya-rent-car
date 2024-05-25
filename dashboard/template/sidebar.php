@@ -33,7 +33,7 @@
 					</li>
 
 					<li class="header">Admin Panel</li>
-					<li class="treeview">
+					<li class="treeview d-none">
 						<a href="#">
 							<i class="icon-User"><span class="path1"></span><span class="path2"></span></i>
 							<span>Admin</span>
@@ -51,7 +51,7 @@
 					<li class="treeview">
 						<a href="#">
 							<i class="icon-Settings"><span class="path1"></span><span class="path2"></span></i>
-							<span>Pengaturan</span>
+							<span>Website</span>
 							<span class="pull-right-container">
 								<i class="fa fa-angle-right pull-right"></i>
 							</span>
@@ -105,13 +105,13 @@
 					<li class="treeview">
 						<a href="#">
 							<i class="mdi mdi-newspaper"><span class="path1"></span><span class="path2"></span></i>
-							<span>Pelayanan</span>
+							<span>Layanan</span>
 							<span class="pull-right-container">
 								<i class="fa fa-angle-right pull-right"></i>
 							</span>
 						</a>
 						<ul class="treeview-menu">
-							<li><a href="?menu=pelayanan"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Pelayanan</a></li>
+							<li><a href="?menu=pelayanan"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Mobil</a></li>
 							<li><a href="?menu=pelayanan-kategori"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Kategori</a></li>
 						</ul>
 					</li>
@@ -157,7 +157,7 @@
 						</ul>
 					</li>
 
-					<li class="treeview">
+					<li class="treeview d-none">
 						<a href="#">
 							<i class="mdi mdi-phone"><span class="path1"></span><span class="path2"></span></i>
 							<span>Pesan</span>

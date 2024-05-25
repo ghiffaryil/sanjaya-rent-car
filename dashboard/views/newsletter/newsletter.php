@@ -377,6 +377,7 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                             <tr class="bg-light">
                                                 <th style="width:4%;">No</th>
                                                 <th style="width:26%;">Email</th>
+                                                <th style="width:26%;">Action</th>
                                                 <th style="width:15%;">Waktu</th>
                                                 <th style="width:15%;">Status</th>
                                             </tr>
@@ -409,6 +410,7 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                                 <?php echo $data['Email'] ?>
                                                             </a>
                                                         </td>
+                                                        <td><a href="mailto:<?php echo $data['Email']; ?>" target="_blank" class="btn btn-sm btn-success"><?php echo $data['Email'] ?></a></td>
                                                         <td><?php echo tanggal_dan_waktu_24_jam_indonesia($data['Waktu_Simpan_Data']); ?></td>
                                                         <td><?php echo $data['Status'] ?></td>
                                                     </tr>
