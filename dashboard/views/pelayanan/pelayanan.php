@@ -619,13 +619,9 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                         </td>
                                                         <td><?php echo $a_format_angka->rupiah($data['Harga']); ?>/hari</td>
                                                         <td>
-                                                            <?php
-                                                            if ($data['Cover_Pelayanan'] <> "") {
-                                                            ?>
+                                                            <?php if ($data['Cover_Pelayanan'] <> "") { ?>
                                                                 <img src="media/pelayanan/cover/<?php echo $data['Cover_Pelayanan'] ?>?time=<?php echo $Waktu_Sekarang ?>" style="width: 80px; height: auto">
-                                                            <?php
-                                                            }
-                                                            ?>
+                                                            <?php } ?>
                                                         </td>
                                                     </tr>
                                                 <?php } ?>
