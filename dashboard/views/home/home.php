@@ -4,18 +4,18 @@
       <div class="row align-items-end">
         <div class="col-xl-12 col-12">
           <div class="box bg-primary-light pull-up">
-            <div class="box-body p-xl-0">
+            <div class="box-body p-xl-0 bg-white">
               <div class="row align-items-center">
-                <div class="col-12 col-lg-3"><img src="images/svg-icon/color-svg/custom-14.svg" alt=""></div>
-                <div class="col-12 col-lg-9">
-                  <h1>Selamat datang <b><?php echo $u_Nama_Lengkap; ?></b></h1>
+                <div class="col-12 col-lg-9 text-left">
+                  <div style="padding-left: 3em;"><h1>Selamat datang <b><?php echo $u_Nama_Lengkap; ?></b></h1></div>
                 </div>
+                <div class="col-12 col-lg-3 text-center"><img src="../frontend/assets/media/logo/logo_main.jpg" style="height: 200px; width:auto; padding:2em" alt=""></div>
               </div>
             </div>
           </div>
         </div>
         <div class="col-xl-4 col-12 d-none">
-          <div class="box bg-transparent no-shadow">
+          <div class="box bg-white no-shadow">
             <div class="box-body p-xl-0 text-center">
               <h3 class="px-30 mb-20">Apakah ada Artikel baru?</h3>
               <a href="?menu=artikel&tambah" class="waves-effect waves-light w-p100 btn btn-primary"><i class="fa fa-plus me-15"></i> Buat Artikel </a>
