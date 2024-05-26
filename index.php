@@ -5,12 +5,15 @@
 
 <body>
 
-    <?php 
+    <?php
 
     include "app/config/function/init.php";
 
     $result_website = $a_tambah_baca_update_hapus->baca_data_id("tb_pengaturan_website", "Id_Pengaturan_Website", "1");
     $data_website = $result_website['Hasil'];
+
+    $result_tentang_kami = $a_tambah_baca_update_hapus->baca_data_id("tb_tentang_kami", "Id_Tentang_Kami", "1");
+    $data_tentang_kami = $result_tentang_kami['Hasil'];
     ?>
 
 

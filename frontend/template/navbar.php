@@ -1,6 +1,6 @@
 <div class="nav-bar">
     <div class="container">
-        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark" style="text-wrap: nowrap;">
             <a href="#" class="navbar-brand">MENU</a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -8,21 +8,60 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto">
-                    <a href="index.php" class="nav-item nav-link active">Beranda</a>
-                    <a href="?view=about" class="nav-item nav-link">Tentang Kami</a>
+                    <img src="frontend/assets/media/logo/logo_main.jpg" style="height: 40px;" alt="">
+                </div>
+                <div class="navbar-nav mr-auto">
+                    <a href="index.php" class="nav-item nav-link <?php if (!(isset($_GET['view']))) {
+                                                                        echo "active";
+                                                                    } ?>">Beranda</a>
+                    <a href="?view=about" class="nav-item nav-link <?php if ((isset($_GET['view'])) && ($_GET['view'] == "about")) {
+                                                                        echo "active";
+                                                                    } ?>">Tentang Kami</a>
                     <div class="nav-item dropdown">
-                        <a href="?view=services" class="nav-link dropdown-toggle" data-toggle="dropdown">Layanan</a>
-                        <div class="dropdown-menu">
-                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                            <a href="single.html" class="dropdown-item">Detail Page</a>
-                            <a href="team.html" class="dropdown-item">Team Member</a>
-                            <a href="booking.html" class="dropdown-item">Schedule Booking</a>
+
+                        <style>
+                            /* CSS to change color to black when hovering */
+                            .dropdown-item {
+                                color: white;
+                                padding: 0.5m;
+                            }
+
+                            .dropdown-item:hover {
+                                color: black;
+                            }
+                        </style>
+
+                        <a href="" class="nav-link dropdown-toggle <?php if ((isset($_GET['view'])) && ($_GET['view'] == "service-detail")) {
+                                                                        echo "active";
+                                                                    } ?>" data-toggle="dropdown">Layanan</a>
+                        <div class="dropdown-menu" style="background: orange;">
+                            <?php
+                            $search_field_where = array("Status");
+                            $search_criteria_where = array("=");
+                            $search_value_where = array("Aktif");
+                            $search_connector_where = array("");
+                            $nomor = 0;
+                            $result = $a_tambah_baca_update_hapus->baca_data_dengan_filter("tb_pelayanan_kategori", $search_field_where, $search_criteria_where, $search_value_where, $search_connector_where);
+
+                            if ($result['Status'] == "Sukses") {
+                                $data_hasil = $result['Hasil'];
+
+                                foreach ($data_hasil as $data) {
+                                    $nomor++;
+                            ?>
+                                    <a class="dropdown-item" href="?view=service-detail&id=<?php echo $a_hash->encode($data['Id_Pelayanan_Kategori'], "service-detail") ?>" class="dropdown-item"><?php echo $data['Nama_Pelayanan_Kategori'] ?></a>
+                            <?php
+                                }
+                            }
+                            ?>
                         </div>
                     </div>
-                    <a href="?view=contact" class="nav-item nav-link">Kontak</a>
+                    <a href="?view=contact" class="nav-item nav-link <?php if ((isset($_GET['view'])) && ($_GET['view'] == "contact")) {
+                                                                            echo "active";
+                                                                        } ?>">Kontak</a>
                 </div>
                 <div class="ml-auto">
-                    <a class="btn btn-custom" href="http://wa.me/<?php echo $data_website['Nomor_CS']?>">Hubungi Kami</a>
+                    <a class="btn btn-custom" href="http://wa.me/<?php echo $data_website['Nomor_CS'] ?>">Hubungi Kami</a>
                 </div>
             </div>
         </nav>

@@ -1,46 +1,47 @@
+<style>
+    @media (max-width: 992px) {
+        .carousel .carousel-item {
+            display: grid;
+        }
+    }
+</style>
+
 <!-- Carousel Start -->
 <div class="carousel">
     <div class="container-fluid">
         <div class="owl-carousel">
-            <div class="carousel-item">
-                <div class="carousel-img">
-                    <img src="frontend/assets/media/carousel/carousel-bg-1.jpg" alt="Image">
-                </div>
-                <div class="carousel-text">
-                    <h3>Washing & Detailing</h3>
-                    <h1>Keep your Car Newer</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac
-                    </p>
-                    <a class="btn btn-custom" href="">Explore More</a>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-img">
-                    <img src="frontend/assets/media/carousel/carousel-bg-2.jpg" alt="Image">
-                </div>
-                <div class="carousel-text">
-                    <h3>Washing & Detailing</h3>
-                    <h1>Quality service for you</h1>
-                    <p>
-                        Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis orci sodales
-                    </p>
-                    <a class="btn btn-custom" href="">Explore More</a>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-img">
-                    <img src="frontend/assets/media/carousel/carousel-bg-3.jpg" alt="Image">
-                </div>
-                <div class="carousel-text">
-                    <h3>Washing & Detailing</h3>
-                    <h1>Exterior & Interior Washing</h1>
-                    <p>
-                        Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam
-                    </p>
-                    <a class="btn btn-custom" href="">Explore More</a>
-                </div>
-            </div>
+
+            <?php
+            $search_field_where = array("Status");
+            $search_criteria_where = array("=");
+            $search_value_where = array("Aktif");
+            $search_connector_where = array("");
+            $nomor = 0;
+            $result = $a_tambah_baca_update_hapus->baca_data_dengan_filter("tb_banner", $search_field_where, $search_criteria_where, $search_value_where, $search_connector_where);
+
+            if ($result['Status'] == "Sukses") {
+                $data_hasil = $result['Hasil'];
+
+                foreach ($data_hasil as $data) {
+                    $nomor++;
+            ?>
+
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="dashboard/media/banner/<?php echo $data['Foto_Banner']; ?>" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+                            <h1><?php echo $data['Judul']; ?></h1>
+                            <h2 class="text-white"><?php echo $data['Deskripsi']; ?></h2>
+
+                            <br><br>
+                            <a class="btn btn-custom" href="">Explore More</a>
+                        </div>
+                    </div>
+
+            <?php }
+            } ?>
+
         </div>
     </div>
 </div>
@@ -53,102 +54,48 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="about-img">
-                    <img src="frontend/assets/media/img/about.jpg" alt="Image">
+                    <img src="dashboard/media/tentang_kami/<?php echo $data_tentang_kami['Foto_Tentang_Kami'] ?>" alt="Image">
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="section-header text-left">
-                    <p>About Us</p>
-                    <h2>car washing and detailing</h2>
+                    <p>
+                        <font style="size: 60px;">Tentang Kami</font>
+                    </p>
+                    <h2><?php echo $data_website['Judul_Website'] ?></h2>
                 </div>
                 <div class="about-content">
                     <p>
-                        Lorem ipsum dolor sit amet elit. In vitae turpis. Donec in hendre dui, vel blandit massa. Ut vestibu suscipi cursus. Cras quis porta nulla, ut placerat risus. Aliquam nec magna eget velit luctus dictum
+                        <?php echo $data_website['Deskripsi_Lengkap'] ?>
                     </p>
                     <ul>
-                        <li><i class="far fa-check-circle"></i>Seats washing</li>
-                        <li><i class="far fa-check-circle"></i>Vacuum cleaning</li>
-                        <li><i class="far fa-check-circle"></i>Interior wet cleaning</li>
-                        <li><i class="far fa-check-circle"></i>Window wiping</li>
+                        <?php
+                        $search_field_where = array("Status");
+                        $search_criteria_where = array("=");
+                        $search_value_where = array("Aktif");
+                        $search_connector_where = array("");
+                        $nomor = 0;
+                        $result = $a_tambah_baca_update_hapus->baca_data_dengan_filter("tb_pelayanan_kategori", $search_field_where, $search_criteria_where, $search_value_where, $search_connector_where);
+
+                        if ($result['Status'] == "Sukses") {
+                            $data_hasil = $result['Hasil'];
+
+                            foreach ($data_hasil as $data_layanan) {
+                                $nomor++;
+                        ?>
+                                <li><i class="far fa-check-circle"></i><?php echo $data_layanan['Nama_Pelayanan_Kategori'] ?></li>
+                        <?php
+                            }
+                        }
+                        ?>
                     </ul>
-                    <a class="btn btn-custom" href="">Learn More</a>
+                    <a class="btn btn-custom" href="?view=contact">Hubungi Kami</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- About End -->
-
-
-<!-- Service Start -->
-<div class="service">
-    <div class="container">
-        <div class="section-header text-center">
-            <p>What We Do?</p>
-            <h2>Premium Washing Services</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="service-item">
-                    <i class="flaticon-car-wash-1"></i>
-                    <h3>Exterior Washing</h3>
-                    <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="service-item">
-                    <i class="flaticon-car-wash"></i>
-                    <h3>Interior Washing</h3>
-                    <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="service-item">
-                    <i class="flaticon-vacuum-cleaner"></i>
-                    <h3>Vacuum Cleaning</h3>
-                    <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="service-item">
-                    <i class="flaticon-seat"></i>
-                    <h3>Seats Washing</h3>
-                    <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="service-item">
-                    <i class="flaticon-car-service"></i>
-                    <h3>Window Wiping</h3>
-                    <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="service-item">
-                    <i class="flaticon-car-service-2"></i>
-                    <h3>Wet Cleaning</h3>
-                    <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="service-item">
-                    <i class="flaticon-car-wash"></i>
-                    <h3>Oil Changing</h3>
-                    <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="service-item">
-                    <i class="flaticon-brush-1"></i>
-                    <h3>Brake Reparing</h3>
-                    <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Service End -->
-
 
 <!-- Facts Start -->
 <div class="facts" data-parallax="scroll" data-image-src="frontend/assets/media/img/facts.jpg">
@@ -158,8 +105,8 @@
                 <div class="facts-item">
                     <i class="fa fa-map-marker-alt"></i>
                     <div class="facts-text">
-                        <h3 data-toggle="counter-up">25</h3>
-                        <p>Service Points</p>
+                        <h3 data-toggle="counter-up">5</h3>
+                        <p>Paket Sewa</p>
                     </div>
                 </div>
             </div>
@@ -167,8 +114,8 @@
                 <div class="facts-item">
                     <i class="fa fa-user"></i>
                     <div class="facts-text">
-                        <h3 data-toggle="counter-up">350</h3>
-                        <p>Engineers & Workers</p>
+                        <h3 data-toggle="counter-up">35</h3>
+                        <p>Drivers</p>
                     </div>
                 </div>
             </div>
@@ -176,8 +123,8 @@
                 <div class="facts-item">
                     <i class="fa fa-users"></i>
                     <div class="facts-text">
-                        <h3 data-toggle="counter-up">1500</h3>
-                        <p>Happy Clients</p>
+                        <h3 data-toggle="counter-up">500</h3>
+                        <p>Pelanggan</p>
                     </div>
                 </div>
             </div>
@@ -185,8 +132,8 @@
                 <div class="facts-item">
                     <i class="fa fa-check"></i>
                     <div class="facts-text">
-                        <h3 data-toggle="counter-up">5000</h3>
-                        <p>Projects Completed</p>
+                        <h3 data-toggle="counter-up">1000</h3>
+                        <p>Perjalanan</p>
                     </div>
                 </div>
             </div>
@@ -196,7 +143,7 @@
 <!-- Facts End -->
 
 
-<!-- Price Start -->
+<!-- Price Start 
 <div class="price">
     <div class="container">
         <div class="section-header text-center">
@@ -267,7 +214,7 @@
         </div>
     </div>
 </div>
-<!-- Price End -->
+Price End -->
 
 
 <!-- Location Start -->
@@ -276,67 +223,51 @@
         <div class="row">
             <div class="col-lg-7">
                 <div class="section-header text-left">
-                    <p>Washing Points</p>
-                    <h2>Car Washing & Care Points</h2>
+                    <p>Hubungi Kami</p>
+                    <h2><?php echo $data_website['Judul_Website'] ?></h2>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="location-item">
                             <i class="fa fa-map-marker-alt"></i>
                             <div class="location-text">
-                                <h3>Car Washing Point</h3>
-                                <p>123 Street, New York, USA</p>
-                                <p><strong>Call:</strong>+012 345 6789</p>
+                                <h3>Alamat Kantor</h3>
+                                <p><?php echo $data_website['Alamat_Lengkap'] ?></p>
+                                <br>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+
                         <div class="location-item">
-                            <i class="fa fa-map-marker-alt"></i>
+                            <i class="fa fa-phone"></i>
                             <div class="location-text">
-                                <h3>Car Washing Point</h3>
-                                <p>123 Street, New York, USA</p>
-                                <p><strong>Call:</strong>+012 345 6789</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="location-item">
-                            <i class="fa fa-map-marker-alt"></i>
-                            <div class="location-text">
-                                <h3>Car Washing Point</h3>
-                                <p>123 Street, New York, USA</p>
-                                <p><strong>Call:</strong>+012 345 6789</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="location-item">
-                            <i class="fa fa-map-marker-alt"></i>
-                            <div class="location-text">
-                                <h3>Car Washing Point</h3>
-                                <p>123 Street, New York, USA</p>
-                                <p><strong>Call:</strong>+012 345 6789</p>
+                                <h3>Kontak Kami</h3>
+                                <p><strong>Telp:</strong><?php echo $data_website['Nomor_Telpon'] ?></p>
+                                <p><strong>HP:</strong><?php echo $data_website['Nomor_Handphone'] ?></p>
+                                <p><strong>Email:</strong><?php echo $data_website['Email_Admin'] ?></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-5">
-                <div class="location-form">
-                    <h3>Request for a car wash</h3>
+                <div class="location-form" style="background-image: linear-gradient(to bottom, #269ca2, #0c5460);">
+                    <h3><small> Ingin Sewa Mobil?</small> <br> <big>Hubungi Kami!</big></h3>
                     <form>
                         <div class="control-group">
-                            <input type="text" class="form-control" placeholder="Name" required="required" />
+                            <input type="text" class="form-control" placeholder="Nama" required="required" />
                         </div>
                         <div class="control-group">
-                            <input type="email" class="form-control" placeholder="Email" required="required" />
+                            <input type="email" class="form-control" placeholder="No. Handphone" required="required" />
                         </div>
                         <div class="control-group">
-                            <textarea class="form-control" placeholder="Description" required="required"></textarea>
+                            <textarea class="form-control" placeholder="Pesan" required="required"></textarea>
                         </div>
                         <div>
-                            <button class="btn btn-custom" type="submit">Send Request</button>
+                            <button class="btn btn-custom" type="submit">Kirim</button>
                         </div>
                     </form>
                 </div>
@@ -433,50 +364,38 @@
 <div class="testimonial">
     <div class="container">
         <div class="section-header text-center">
-            <p>Testimonial</p>
-            <h2>What our clients say</h2>
+            <p>Testimoni</p>
+            <h2>Apa kata mereka?</h2>
         </div>
         <div class="owl-carousel testimonials-carousel">
-            <div class="testimonial-item">
-                <img src="frontend/assets/media/img/testimonial-1.jpg" alt="Image">
-                <div class="testimonial-text">
-                    <h3>Client Name</h3>
-                    <h4>Profession</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor auctor gravid
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <img src="frontend/assets/media/img/testimonial-2.jpg" alt="Image">
-                <div class="testimonial-text">
-                    <h3>Client Name</h3>
-                    <h4>Profession</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor auctor gravid
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <img src="frontend/assets/media/img/testimonial-3.jpg" alt="Image">
-                <div class="testimonial-text">
-                    <h3>Client Name</h3>
-                    <h4>Profession</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor auctor gravid
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <img src="frontend/assets/media/img/testimonial-4.jpg" alt="Image">
-                <div class="testimonial-text">
-                    <h3>Client Name</h3>
-                    <h4>Profession</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet elit. Phasel preti mi facilis ornare velit non vulputa. Aliqu metus tortor auctor gravid
-                    </p>
-                </div>
-            </div>
+
+            <?php
+            $search_field_where = array("Status");
+            $search_criteria_where = array("=");
+            $search_value_where = array("Aktif");
+            $search_connector_where = array("");
+            $nomor = 0;
+            $result = $a_tambah_baca_update_hapus->baca_data_dengan_filter("tb_testimoni", $search_field_where, $search_criteria_where, $search_value_where, $search_connector_where);
+
+            if ($result['Status'] == "Sukses") {
+                $data_hasil = $result['Hasil'];
+
+                foreach ($data_hasil as $data_testimoni) {
+                    $nomor++;
+            ?>
+                    <div class="testimonial-item">
+                        <img src="dashboard/media/testimoni/<?php echo $data_testimoni['Foto']; ?>" alt="Image">
+                        <div class="testimonial-text">
+                            <h3><?php echo $data_testimoni['Nama']; ?></h3>
+                            <h4><?php echo $data_testimoni['Instansi']; ?></h4>
+                            <p><?php echo $data_testimoni['Testimoni']; ?></p>
+                        </div>
+                    </div>
+
+            <?php
+                }
+            }
+            ?>
         </div>
     </div>
 </div>
@@ -486,79 +405,51 @@
 <div class="blog">
     <div class="container">
         <div class="section-header text-center">
-            <p>Our Blog</p>
-            <h2>Latest news & articles</h2>
+            <p>Galeri</p>
+            <h2>Galeri Kami</h2>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="frontend/assets/media/img/blog-1.jpg" alt="Image">
-                        <div class="meta-date">
-                            <span>01</span>
-                            <strong>Jan</strong>
-                            <span>2045</span>
+
+            <?php
+            $search_field_where = array("Status");
+            $search_criteria_where = array("=");
+            $search_value_where = array("Aktif");
+            $search_connector_where = array("ORDER BY Id_Galeri DESC LIMIT 4");
+            $nomor = 0;
+            $result = $a_tambah_baca_update_hapus->baca_data_dengan_filter("tb_galeri", $search_field_where, $search_criteria_where, $search_value_where, $search_connector_where);
+
+            if ($result['Status'] == "Sukses") {
+                $data_hasil = $result['Hasil'];
+
+                foreach ($data_hasil as $data_galeri) {
+                    $nomor++;
+            ?>
+                    <div class="col-lg-3">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <img src="dashboard/media/galeri/<?php echo $data_galeri['Foto_Galeri']; ?>" alt="Image">
+                                <div class="meta-date">
+                                    <?php echo $data_galeri['Judul_Galeri']; ?>
+                                </div>
+                            </div>
+                            <div class="blog-text">
+                                <h3><a href="#"><?php echo $data_galeri['Judul_Galeri']; ?></a></h3>
+                                <p>
+                                    <?php echo $data_galeri['Keterangan']; ?>
+                                </p>
+                            </div>
+                            <div class="blog-meta">
+                                <p><a><i class="fa fa-user"></i>Admin</a></p>
+                                <p><a><i class="fa fa-calendar"></i><?php echo tanggal_dan_waktu_24_jam_indonesia($data_galeri['Waktu_Simpan_Data']); ?></a></p>
+                            </div>
                         </div>
                     </div>
-                    <div class="blog-text">
-                        <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Pellent iaculis blandit lorem, quis convall diam eleife. Nam in arcu sit amet massa ferment quis enim. Nunc augue velit metus congue eget semper
-                        </p>
-                    </div>
-                    <div class="blog-meta">
-                        <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                        <p><i class="fa fa-folder"></i><a href="">Web Design</a></p>
-                        <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="frontend/assets/media/img/blog-2.jpg" alt="Image">
-                        <div class="meta-date">
-                            <span>01</span>
-                            <strong>Jan</strong>
-                            <span>2045</span>
-                        </div>
-                    </div>
-                    <div class="blog-text">
-                        <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Pellent iaculis blandit lorem, quis convall diam eleife. Nam in arcu sit amet massa ferment quis enim. Nunc augue velit metus congue eget semper
-                        </p>
-                    </div>
-                    <div class="blog-meta">
-                        <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                        <p><i class="fa fa-folder"></i><a href="">Web Design</a></p>
-                        <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="frontend/assets/media/img/blog-3.jpg" alt="Image">
-                        <div class="meta-date">
-                            <span>01</span>
-                            <strong>Jan</strong>
-                            <span>2045</span>
-                        </div>
-                    </div>
-                    <div class="blog-text">
-                        <h3><a href="#">Lorem ipsum dolor sit amet</a></h3>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Pellent iaculis blandit lorem, quis convall diam eleife. Nam in arcu sit amet massa ferment quis enim. Nunc augue velit metus congue eget semper
-                        </p>
-                    </div>
-                    <div class="blog-meta">
-                        <p><i class="fa fa-user"></i><a href="">Admin</a></p>
-                        <p><i class="fa fa-folder"></i><a href="">Web Design</a></p>
-                        <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
-                    </div>
-                </div>
-            </div>
+
+            <?php
+                }
+            }
+            ?>
+
         </div>
     </div>
 </div>

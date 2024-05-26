@@ -1,6 +1,6 @@
 <?php
-if (isset($_GET['menu'])) {
-    switch ($_GET['menu']) {
+if (isset($_GET['view'])) {
+    switch ($_GET['view']) {
 
         case 'home':
             include "frontend/views/home/index.php";
@@ -11,11 +11,8 @@ if (isset($_GET['menu'])) {
         case 'contact':
             include "frontend/views/contact/index.php";
             break;
-        case 'services':
+        case 'service-detail':
             include "frontend/views/services/index.php";
-            break;
-        case 'services-detail':
-            include "frontend/views/services/service-details.php";
             break;
         case 'testimoni':
             include "frontend/views/testimoni/index.php";

@@ -58,7 +58,7 @@ a:focus {
 }
 
 .container-fluid {
-    max-width: 1366px;
+    /* max-width: 1366px; */
 }
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
@@ -271,7 +271,7 @@ a:focus {
     margin-top: 0;
     border: 0;
     border-radius: 0;
-    background: #f8f9fa;
+    background: #fcfcff;
 }
 
 .nav-bar .btn.btn-custom {
@@ -363,7 +363,7 @@ a:focus {
 
 .carousel .carousel-text {
     position: absolute;
-    max-width: 992px;
+    /* max-width: 992px; */
     padding: 0 15px;
     text-align: center;
     display: flex;
