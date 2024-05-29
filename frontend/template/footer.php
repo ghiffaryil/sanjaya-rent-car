@@ -17,19 +17,19 @@
             <div class="col-lg-4 col-md-6">
                 <div class="footer-link">
                     <h2>Menu</h2>
-                    <a href="">Tentang Kami</a>
-                    <a href="">Layanan</a>
-                    <a href="">Kontak</a>
-                    <a href="">Testimoni</a>
+                    <a href="?view=about">Tentang Kami</a>
+                    <a href="?view=services">Layanan</a>
+                    <a href="?view=contact">Kontak</a>
+                    <a href="?view=testimonials">Testimoni</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="footer-newsletter">
                     <h2>Newsletter</h2>
-                    <form method="POST">
-                        <input class="form-control" placeholder="Full Name" required>
-                        <input class="form-control" placeholder="Email" required>
-                        <button type="submit" name="submit_add_newsletter" class="btn btn-custom">Submit</button>
+                    <form id="newsletterForm">
+                        <input id="Nama" class="form-control" placeholder="Full Name" name="Nama" required>
+                        <input id="Email" class="form-control" placeholder="Email" name="Email" required>
+                        <button type="submit" id="submit_add_newsletter" class="btn btn-custom">Submit</button>
                     </form>
                 </div>
             </div>
@@ -39,3 +39,59 @@
         <p>Copyright &copy; <a href="#">Sanjaya Rental Mobil</a> 2024, All Right Reserved </p>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#submit_add_newsletter').on('click', function(e) {
+            e.preventDefault();
+
+            var inputNama = $('#Nama').val();
+            var inputEmail = $('#Email').val();
+
+            $.ajax({
+                type: 'POST',
+                url: 'frontend/function/newsletter/add_newsletter.php',
+                data: {
+                    "Nama": inputNama,
+                    "Email": inputEmail
+                },
+                dataType: 'json',
+                success: function(response) {
+                    alert(response.message);
+
+                    if (response.status == "success") {
+                        var inputNama = $('#Nama').val('');
+                        var inputEmail = $('#Email').val('');
+                    }
+                },
+                error: function() {
+                    alert('Maaf, terjadi Kesalahan!');
+                }
+            });
+        });
+    });
+</script>
+<?php
+// if (isset($_POST['submit_add_newsletter'])) {
+
+//     $search_field_where = array("Status", "Email");
+//     $search_criteria_where = array("=", "=");
+//     $search_value_where = array("Aktif", "$_POST[Email]");
+//     $search_connector_where = array("AND", "");
+
+//     $result = $a_tambah_baca_update_hapus->baca_data_dengan_filter("tb_newsletter", $search_field_where, $search_criteria_where, $search_value_where, $search_connector_where);
+
+//     if ($result['Status'] == "Sukses") {
+//         echo "<script>alert('Email anda telah terdaftar');</script>";
+//     } else {
+
+//         $form_field = array("Nama", "Email", "Waktu_Simpan_Data", "Status");
+//         $form_value = array("$_POST[Nama]", "$_POST[Email]", "$Waktu_Sekarang", "Aktif");
+
+//         $result = $a_tambah_baca_update_hapus->tambah_data("tb_newsletter", $form_field, $form_value);
+
+//         if ($result['Status'] == "Sukses") {
+//             echo "<script>alert('Anda telah mendaftar untuk berlangganan');</script>";
+//         }
+//     }
+// }
+?>

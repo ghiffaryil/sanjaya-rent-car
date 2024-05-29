@@ -339,16 +339,16 @@
 
     <?php
 
-    include 'frontend/function/contact/send_message_whatsapp.php';
+    // include 'frontend/function/contact/send_message_whatsapp.php';
 
-    if (isset($_POST['submit_kirim_pesan'])) {
+    // if (isset($_POST['submit_kirim_pesan'])) {
 
-        $input_nama = $_POST['Nama'];
-        $input_nomor_handphone = $_POST['Nomor_Handphone'];
-        $input_pesan = $_POST['Pesan'];
+    //     $input_nama = $_POST['Nama'];
+    //     $input_nomor_handphone = $_POST['Nomor_Handphone'];
+    //     $input_pesan = $_POST['Pesan'];
 
-        send_message_whatsapp($data_website, $input_nama, $input_nomor_handphone, $input_pesan);
-    }
+    //     send_message_whatsapp($data_website, $input_nama, $input_nomor_handphone, $input_pesan);
+    // }
     ?>
 </div>
 <!-- Location End -->
