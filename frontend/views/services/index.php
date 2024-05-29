@@ -153,8 +153,12 @@
                                 ?>
 
                             </div>
+                            <?php
+                            $text_pesan = $data_website['Pesan_CS'] . " " . $data_pelayanan['Judul_Pelayanan'] . "_" . $Nama_Kategori;
+                            $pesan = str_replace(" ", "%20", $text_pesan);
+                            ?>
                             <button class="btn btn-orange text-white text-bold" style="cursor:default" readonly><?php echo $a_format_angka->rupiah($data_pelayanan['Harga']); ?>/hari</button>
-                            <button class="btn btn-info"> Pesan Sekarang </button>
+                            <a target="_blank" class="btn btn-info text-white text-bold" href="https://api.whatsapp.com/send/?phone=%2B62<?php echo $data_website['Nomor_CS'] ?>&text=<?php echo $pesan ?>" > Pesan Sekarang </a>
                         </div>
                     </div>
 

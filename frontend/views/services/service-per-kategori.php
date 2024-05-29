@@ -61,6 +61,16 @@ if ($result['Status'] == "Sukses") {
                         $data_hasil = $result_layanan['Hasil'];
 
                         foreach ($data_hasil as $data_pelayanan) {
+
+                            $result_kategori = $a_tambah_baca_update_hapus->baca_data_id("tb_pelayanan_kategori", "Id_Pelayanan_Kategori", $data_pelayanan['Kategori']);
+
+                            if ($result_kategori['Status'] == "Sukses") {
+                                $data_pelayanan_kategori = $result_kategori['Hasil'];
+                                $Nama_Kategori = $data_pelayanan_kategori['Nama_Pelayanan_Kategori'];
+                            } else {
+                                $Nama_Kategori = "-";
+                            }
+
                     ?>
                             <div class="tab-pane fade show active" id="tab<?php echo $nomor ?>">
                                 <!-- Your Tab 1 Content Here -->
@@ -88,8 +98,14 @@ if ($result['Status'] == "Sukses") {
                                         }
                                         ?>
                                         <br>
-                                        <a href="?view=service-detail&id=<?php echo $a_hash->encode($data_pelayanan['Id_Pelayanan'],"service-detail");?>" class="btn btn-block btn-info py-3 px-5 mt-3"><i class="fa fa-info"></i>&nbsp;&nbsp;Lihat Detail</a>
-                                        <a href="" class="btn btn-block btn-danger py-3 px-5 mt-3"><i class="fa fa-phone-alt"></i>&nbsp;&nbsp;Pesan Sekarang</a>
+
+                                        <?php
+                                        $text_pesan = $data_website['Pesan_CS'] . " " . $data_pelayanan['Judul_Pelayanan'] . "_" . $Nama_Kategori;
+                                        $pesan = str_replace(" ", "%20", $text_pesan);
+                                        ?>
+
+                                        <a href="?view=service-detail&id=<?php echo $a_hash->encode($data_pelayanan['Id_Pelayanan'], "service-detail"); ?>" class="btn btn-block btn-info py-3 px-5 mt-3"><i class="fa fa-info"></i>&nbsp;&nbsp;Lihat Detail</a>
+                                        <a href="https://api.whatsapp.com/send/?phone=%2B62<?php echo $data_website['Nomor_CS'] ?>&text=<?php echo $pesan ?>" target="_blank" class="btn btn-block btn-danger py-3 px-5 mt-3"><i class="fa fa-phone-alt"></i>&nbsp;&nbsp;Pesan Sekarang</a>
                                     </div>
                                 </div>
                             </div>

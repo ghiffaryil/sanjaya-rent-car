@@ -38,33 +38,40 @@ if ($result['Status'] == "Sukses") {
             </div>
             <div class="col-lg-6 ">
 
-                <h5 class="text-secondary">Kategori : <?php echo $Nama_Kategori ?> </h5>
-                </p>
+                <h5 class="text-secondary"> <?php echo $Nama_Kategori ?> </h5>
 
+                <p>
                 <h5 class="text-info">Spesifikasi : </h5>
                 <p>
                 <h5 class="text-secondary"><?php echo $data_pelayanan['Deskripsi'] ?> </h5>
                 </p>
                 <div class="row pt-3">
+                    <div class="col-lg-12">
+                        <?php
+                        $fasilitas = $data_pelayanan['Fasilitas'];
+                        $array_fasilitas = explode(';', $fasilitas);
+                        foreach ($array_fasilitas as $item) {
+                        ?>
+                            <div class="px-2 py-3">
+                                <i class="fa fa-check-circle text-info mr-2"></i>
+                                <span><?php echo $item ?></span>
+                            </div>
 
+                        <?php
+                        }
+                        ?>
 
+                    </div>
+                </div>
+
+                <div class="row pt-3">
+                    <div class="col-lg-12">
                     <?php
-                    $fasilitas = $data_pelayanan['Fasilitas'];
-                    $array_fasilitas = explode(';', $fasilitas);
-                    foreach ($array_fasilitas as $item) {
+                    $text_pesan = $data_website['Pesan_CS'] . " " . $data_pelayanan['Judul_Pelayanan'] . "_" . $Nama_Kategori;
+                    $pesan = str_replace(" ", "%20", $text_pesan);
                     ?>
-                        <div class="px-2 py-2">
-                            <i class="fa fa-check text-success mr-1"></i>
-                            <span><?php echo $item ?></span>
-                        </div>
-
-                    <?php
-                    }
-                    ?>
-                    <br>
-                    <a href="" class="btn btn-block btn-danger py-3 px-5 mt-3"><i class="fa fa-phone-alt"></i>&nbsp;&nbsp;Pesan Sekarang</a>
-
-
+                    <a class="btn btn-orange text-white text-bold" style="cursor:default" readonly><?php echo $a_format_angka->rupiah($data_pelayanan['Harga']); ?>/hari</a>
+                    <a target="_blank" class="btn btn-info text-white text-bold" href="https://api.whatsapp.com/send/?phone=%2B62<?php echo $data_website['Nomor_CS'] ?>&text=<?php echo $pesan ?>"> Pesan Sekarang </a>
                 </div>
             </div>
         </div>
