@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 25 Bulan Mei 2024 pada 01.03
--- Versi server: 8.0.30
--- Versi PHP: 8.1.10
+-- Generation Time: May 29, 2024 at 01:23 AM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_admin`
+-- Table structure for table `tb_admin`
 --
 
 CREATE TABLE `tb_admin` (
@@ -43,7 +43,7 @@ CREATE TABLE `tb_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_admin`
+-- Dumping data for table `tb_admin`
 --
 
 INSERT INTO `tb_admin` (`Id_Admin`, `Username`, `Password`, `Sebagai`, `Nomor_Registrasi`, `Email`, `Nama_Lengkap`, `Nomor_Handphone`, `Waktu_Terakhir_Login`, `Id_Role`, `Waktu_Simpan_Data`, `Status`) VALUES
@@ -54,7 +54,7 @@ INSERT INTO `tb_admin` (`Id_Admin`, `Username`, `Password`, `Sebagai`, `Nomor_Re
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_banner`
+-- Table structure for table `tb_banner`
 --
 
 CREATE TABLE `tb_banner` (
@@ -71,18 +71,18 @@ CREATE TABLE `tb_banner` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_banner`
+-- Dumping data for table `tb_banner`
 --
 
 INSERT INTO `tb_banner` (`Id_Banner`, `Judul`, `Deskripsi`, `Link`, `Kategori`, `Foto_Banner`, `Judul_Eng`, `Deskripsi_Eng`, `Waktu_Simpan_Data`, `Status`) VALUES
-(1, 'Sanjaya Rental Mobil', 'Pusat Layanan Rental Mobil Terbaik di Kota Medan', '', 'top-center', '45bd61892478b39add7af63081bb4242_1_Foto_Banner.jpg', 'Sanjaya Rent Car', 'Pusat Layanan Rental Mobil Terbaik di Kota Medan', '2024-02-27 11:02:52', 'Aktif'),
-(2, 'Sanjaya Rental Mobil', 'Kualitas Teruji, Layanan Terbaik', '', 'top-center', 'dbaeefb92a1d13e4daa68672651919ca_2_Foto_Banner.jpg', 'Sanjaya Rent Car', 'Kualitas Teruji, Layanan Terbaik', '2024-02-27 11:03:04', 'Aktif'),
+(1, 'Sanjaya Rental Mobil Medan', 'Pusat Layanan Rental Mobil Terbaik di Kota Medan', '', 'top-center', '45bd61892478b39add7af63081bb4242_1_Foto_Banner.jpg', 'Sanjaya Rent Car', 'Pusat Layanan Rental Mobil Terbaik di Kota Medan', '2024-02-27 11:02:52', 'Aktif'),
+(2, 'Kualitas Teruji, Layanan Terbaik', 'Bekerja Bersama Kami!', '', 'top-center', 'dbaeefb92a1d13e4daa68672651919ca_2_Foto_Banner.jpg', 'Sanjaya Rent Car', 'Kualitas Teruji, Layanan Terbaik', '2024-02-27 11:03:04', 'Aktif'),
 (3, 'Bekerja Bersama Kami!', 'Bergabunglah dengan kami untuk kerjasama yang terpercaya dan jangka panjang dalam menyediakan solusi kemasan kayu yang tepat bagi bisnis Anda.', '', 'bottom-center', '', 'Work With Us!', 'Work with us for a trusted and long-term collaboration in providing the right wooden packaging solutions for your business.', '2024-02-29 10:29:09', 'Terhapus Permanen');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_blog_artikel`
+-- Table structure for table `tb_blog_artikel`
 --
 
 CREATE TABLE `tb_blog_artikel` (
@@ -99,7 +99,7 @@ CREATE TABLE `tb_blog_artikel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_blog_artikel`
+-- Dumping data for table `tb_blog_artikel`
 --
 
 INSERT INTO `tb_blog_artikel` (`Id_Blog_Artikel`, `Id_Pengguna`, `Judul_Artikel`, `Isi_Artikel`, `Tag_Artikel`, `Status_Artikel`, `Foto_Artikel`, `Waktu_Terakhir_Update`, `Waktu_Simpan_Data`, `Status`) VALUES
@@ -109,19 +109,19 @@ INSERT INTO `tb_blog_artikel` (`Id_Blog_Artikel`, `Id_Pengguna`, `Judul_Artikel`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_data_role`
+-- Table structure for table `tb_data_role`
 --
 
 CREATE TABLE `tb_data_role` (
   `Id_Role` bigint NOT NULL,
-  `Nama_Role` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Deskripsi_Role` text COLLATE utf8mb4_unicode_ci,
+  `Nama_Role` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Deskripsi_Role` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `Waktu_Simpan_Data` datetime NOT NULL,
-  `Status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `Status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tb_data_role`
+-- Dumping data for table `tb_data_role`
 --
 
 INSERT INTO `tb_data_role` (`Id_Role`, `Nama_Role`, `Deskripsi_Role`, `Waktu_Simpan_Data`, `Status`) VALUES
@@ -132,19 +132,19 @@ INSERT INTO `tb_data_role` (`Id_Role`, `Nama_Role`, `Deskripsi_Role`, `Waktu_Sim
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_data_role_crud`
+-- Table structure for table `tb_data_role_crud`
 --
 
 CREATE TABLE `tb_data_role_crud` (
   `Id_Role_CRUD` bigint NOT NULL,
   `Id_Role` bigint NOT NULL,
-  `Nama_Modul` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Deskripsi_Modul` text COLLATE utf8mb4_unicode_ci,
-  `Akses` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `Nama_Modul` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Deskripsi_Modul` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `Akses` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tb_data_role_crud`
+-- Dumping data for table `tb_data_role_crud`
 --
 
 INSERT INTO `tb_data_role_crud` (`Id_Role_CRUD`, `Id_Role`, `Nama_Modul`, `Deskripsi_Modul`, `Akses`) VALUES
@@ -166,21 +166,21 @@ INSERT INTO `tb_data_role_crud` (`Id_Role_CRUD`, `Id_Role`, `Nama_Modul`, `Deskr
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_faq`
+-- Table structure for table `tb_faq`
 --
 
 CREATE TABLE `tb_faq` (
   `Id_Faq` int NOT NULL,
-  `Pertanyaan` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Jawaban` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Pertanyaan_Eng` text COLLATE utf8mb4_general_ci,
-  `Jawaban_Eng` text COLLATE utf8mb4_general_ci,
+  `Pertanyaan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Jawaban` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Pertanyaan_Eng` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Jawaban_Eng` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `Waktu_Simpan_Data` datetime NOT NULL,
-  `Status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+  `Status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tb_faq`
+-- Dumping data for table `tb_faq`
 --
 
 INSERT INTO `tb_faq` (`Id_Faq`, `Pertanyaan`, `Jawaban`, `Pertanyaan_Eng`, `Jawaban_Eng`, `Waktu_Simpan_Data`, `Status`) VALUES
@@ -193,7 +193,7 @@ INSERT INTO `tb_faq` (`Id_Faq`, `Pertanyaan`, `Jawaban`, `Pertanyaan_Eng`, `Jawa
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_galeri`
+-- Table structure for table `tb_galeri`
 --
 
 CREATE TABLE `tb_galeri` (
@@ -209,7 +209,7 @@ CREATE TABLE `tb_galeri` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_galeri`
+-- Dumping data for table `tb_galeri`
 --
 
 INSERT INTO `tb_galeri` (`Id_Galeri`, `Judul_Galeri`, `Keterangan`, `Foto_Galeri`, `Judul_Galeri_Eng`, `Keterangan_Eng`, `Waktu_Terakhir_Update`, `Waktu_Simpan_Data`, `Status`) VALUES
@@ -225,90 +225,92 @@ INSERT INTO `tb_galeri` (`Id_Galeri`, `Judul_Galeri`, `Keterangan`, `Foto_Galeri
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_kontak`
+-- Table structure for table `tb_kontak`
 --
 
 CREATE TABLE `tb_kontak` (
   `Id_Kontak` bigint NOT NULL,
-  `Nama` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Instansi` text COLLATE utf8mb4_general_ci,
-  `Pesan` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Email` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Nomor_Handphone` text COLLATE utf8mb4_general_ci,
-  `Follow_Up` text COLLATE utf8mb4_general_ci,
+  `Nama` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Instansi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Pesan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Email` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Nomor_Handphone` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Follow_Up` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `Waktu_Simpan_Data` datetime NOT NULL,
-  `Status` text COLLATE utf8mb4_general_ci NOT NULL
+  `Status` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tb_kontak`
+-- Dumping data for table `tb_kontak`
 --
 
 INSERT INTO `tb_kontak` (`Id_Kontak`, `Nama`, `Instansi`, `Pesan`, `Email`, `Nomor_Handphone`, `Follow_Up`, `Waktu_Simpan_Data`, `Status`) VALUES
-(0, 'Ghifary Ilham', 'PT. Revolter Clothing', 'Saya ingin pesan box kayu sebanyak 1.000 pcs', 'ghiffary.ilham@gmail.com', '6285779908779', NULL, '2024-03-04 06:04:28', 'Aktif');
+(1, 'Ghifary Ilham', 'PT. Revolter Clothing', 'Saya ingin pesan box kayu sebanyak 1.000 pcs', 'ghiffary.ilham@gmail.com', '6285779908779', NULL, '2024-03-04 06:04:28', 'Aktif');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_newsletter`
+-- Table structure for table `tb_newsletter`
 --
 
 CREATE TABLE `tb_newsletter` (
   `Id_Newsletter` bigint NOT NULL,
+  `Nama` text NOT NULL,
   `Email` text NOT NULL,
   `Waktu_Simpan_Data` datetime NOT NULL,
   `Status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_newsletter`
+-- Dumping data for table `tb_newsletter`
 --
 
-INSERT INTO `tb_newsletter` (`Id_Newsletter`, `Email`, `Waktu_Simpan_Data`, `Status`) VALUES
-(0, 'ghiffary98@gmail.com', '2024-03-04 06:25:20', 'Aktif');
+INSERT INTO `tb_newsletter` (`Id_Newsletter`, `Nama`, `Email`, `Waktu_Simpan_Data`, `Status`) VALUES
+(1, 'Ghifary 98', 'ghiffary98@gmail.com', '2024-03-04 06:25:20', 'Aktif'),
+(2, 'Iyan', 'yanask@gmail.com', '2024-05-25 09:49:19', 'Aktif');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pelayanan`
+-- Table structure for table `tb_pelayanan`
 --
 
 CREATE TABLE `tb_pelayanan` (
   `Id_Pelayanan` bigint NOT NULL,
-  `Judul_Pelayanan` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Cover_Pelayanan` text COLLATE utf8mb4_general_ci,
-  `Kategori` text COLLATE utf8mb4_general_ci,
-  `Deskripsi` text COLLATE utf8mb4_general_ci,
-  `Foto_Pelayanan` text COLLATE utf8mb4_general_ci,
-  `Judul_Pelayanan_Eng` text COLLATE utf8mb4_general_ci,
-  `Deskripsi_Eng` text COLLATE utf8mb4_general_ci,
-  `Harga` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Fasilitas` text COLLATE utf8mb4_general_ci NOT NULL,
+  `Judul_Pelayanan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Cover_Pelayanan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Kategori` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Deskripsi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Foto_Pelayanan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Judul_Pelayanan_Eng` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Deskripsi_Eng` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Harga` int NOT NULL,
+  `Fasilitas` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Waktu_Simpan_Data` datetime NOT NULL,
-  `Status` text COLLATE utf8mb4_general_ci NOT NULL
+  `Status` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tb_pelayanan`
+-- Dumping data for table `tb_pelayanan`
 --
 
 INSERT INTO `tb_pelayanan` (`Id_Pelayanan`, `Judul_Pelayanan`, `Cover_Pelayanan`, `Kategori`, `Deskripsi`, `Foto_Pelayanan`, `Judul_Pelayanan_Eng`, `Deskripsi_Eng`, `Harga`, `Fasilitas`, `Waktu_Simpan_Data`, `Status`) VALUES
-(1, 'Toyota Innova Reborn', '29882b436a897cf2ce1118194c35d178_1_Foto.jpg', '1', 'Spesifikasi Innova adalah', NULL, 'Wooden Pallet', 'A wooden pallet is a tool or base made of wood and used to support and facilitate the process of loading and unloading goods. The existence of wooden pallets has become an integral part of the global supply chain, facilitating the efficient delivery and storage of goods throughout the world. The use of wooden pallets is very broad, found in various industries ranging from manufacturing, logistics, agriculture, to e-commerce trade. Its flexibility and reliability make wooden pallets the main choice for companies that prioritize efficiency in the distribution of their goods.\r\n<br>\r\nOne of the main advantages of wooden pallets is their strength and durability. Compared to other materials such as plastic or cardboard, wood provides superior strength that can support heavy loads. This allows items to be stacked and transported safely, reducing the risk of damage during the shipping process. Apart from that, wood is also relatively easy to process and repair if damaged, making wooden pallets an economical choice in the long term.', '699000', '', '2024-02-29 10:19:42', 'Aktif'),
-(2, 'Toyota All New Avanza', '2e02981eb0774e8331fe1dde9f776925_2_Foto.jpg', '1', 'Spesifikasi Avanza', NULL, 'Packing Box', 'Packing Box is a storage area specifically designed to maintain the security and integrity of goods during the shipping process. With strong materials and proper design, packing boxes provide the necessary protection against impacts, shocks and pressure that may occur during transportation. Apart from that, packing boxes also facilitate efficient organization and grouping of goods, making loading and unloading and storage easier. Thus, the use of packing boxes is key in ensuring that goods remain safe and in good condition until they reach their final destination.', '649000', '', '2024-02-29 15:31:10', 'Aktif'),
-(3, 'Mitsubishi New Expander', '8754a8a3b3940ebd438eeb27a0591d9e_3_Foto.jpg', '1', 'Spesifikasi Expander', NULL, 'Wooden Bracket', 'Wooden brackets are a type of wood that is often used in various craft and construction projects. This wood has sufficient strength to be used as a support or hook in a variety of applications. With its ability to be easily cut and shaped, wooden elbows are a popular choice for making shelves, tables or small building construction. Additionally, the natural beauty and grain of wood lends a unique aesthetic touch to these projects. With good durability and wide availability, wooden elbows remain a relevant choice in the world of crafts and construction today.', '649000', '', '2024-02-29 15:32:02', 'Aktif'),
-(4, 'Toyota New Fortuner', '03b835fd7b638e1ad35feea51ebcdf53_4_Foto.jpg', '1', 'Spesifikasi Fortuner', NULL, '', '', '999000', 'Driver;BBM;Paket Minuman', '2024-05-25 07:39:21', 'Aktif'),
-(5, 'Mitsubishi New Pajero Sport', '355818d0ce7f5c24e29b78a8d3386c95_5_Foto.jpg', '1', 'Spesifikasi Mobil', NULL, '', '', '999000', 'Driver\'BBM;Paket Minuman', '2024-05-25 07:40:09', 'Aktif'),
-(6, 'Toyota New Alphard', '625f824810f18b05f4c18d0dd664fba9_6_Foto.jpg', '1', 'Spesifikasi Mobil', NULL, '', '', '2199000', 'Driver;BBM;Paket Minuman', '2024-05-25 07:40:55', 'Aktif'),
-(7, 'Toyota Hi-Ace', '7cfa1bed787c2ba4620b2c422a020ad0_7_Foto.jpg', '1', 'Spesifikasi Mobil', NULL, '', '', '1199000', 'Driver;BBM;Paket Minuman', '2024-05-25 07:41:27', 'Aktif'),
-(8, 'Toyota Innova Reborn', '0634f141e9390432dc90a7be81db4450_8_Foto.jpg', '2', 'Spesifikasi Mobil', NULL, '', '', '699000', 'Driver;BBM;Paket Minuman', '2024-05-25 07:43:11', 'Aktif'),
-(9, 'Toyota Innova Reborn', 'bb862f9247c66e0a4e8ed5a9933e08fc_9_Foto.jpg', '3', 'Spesifikasi', NULL, '', '', '949000', 'Driver;BBM;Paket Minuman', '2024-05-25 07:43:50', 'Aktif'),
-(10, 'Toyota Innova Reborn', 'ee0d7dac8b301510b650b57a15a0ca31_10_Foto.jpg', '4', 'Spesifikasi', NULL, '', '', '899000', 'Driver;BBM;Bunga Hias', '2024-05-25 07:44:31', 'Aktif'),
-(11, 'Toyota Innova Reborn', 'c26036e47eb70b33b1804e5919d33ba1_11_Foto.jpg', '1', 'Spesifikasi Mobil', NULL, '', '', '900000', 'Driver;BBM;Paket Minuman', '2024-05-25 07:45:00', 'Aktif');
+(1, 'Toyota Innova Reborn', '29882b436a897cf2ce1118194c35d178_1_Foto.jpg', '1', 'Spesifikasi Innova adalah', NULL, 'Wooden Pallet', 'A wooden pallet is a tool or base made of wood and used to support and facilitate the process of loading and unloading goods. The existence of wooden pallets has become an integral part of the global supply chain, facilitating the efficient delivery and storage of goods throughout the world. The use of wooden pallets is very broad, found in various industries ranging from manufacturing, logistics, agriculture, to e-commerce trade. Its flexibility and reliability make wooden pallets the main choice for companies that prioritize efficiency in the distribution of their goods.\r\n<br>\r\nOne of the main advantages of wooden pallets is their strength and durability. Compared to other materials such as plastic or cardboard, wood provides superior strength that can support heavy loads. This allows items to be stacked and transported safely, reducing the risk of damage during the shipping process. Apart from that, wood is also relatively easy to process and repair if damaged, making wooden pallets an economical choice in the long term.', 699000, 'Driver;BBM;Paket Minuman', '2024-02-29 10:19:42', 'Aktif'),
+(2, 'Toyota All New Avanza', '2e02981eb0774e8331fe1dde9f776925_2_Foto.jpg', '1', 'Spesifikasi Avanza', NULL, 'Packing Box', 'Packing Box is a storage area specifically designed to maintain the security and integrity of goods during the shipping process. With strong materials and proper design, packing boxes provide the necessary protection against impacts, shocks and pressure that may occur during transportation. Apart from that, packing boxes also facilitate efficient organization and grouping of goods, making loading and unloading and storage easier. Thus, the use of packing boxes is key in ensuring that goods remain safe and in good condition until they reach their final destination.', 649000, 'Driver;BBM;Paket Minuman', '2024-02-29 15:31:10', 'Aktif'),
+(3, 'Mitsubishi New Expander', '8754a8a3b3940ebd438eeb27a0591d9e_3_Foto.jpg', '1', 'Spesifikasi Expander', NULL, 'Wooden Bracket', 'Wooden brackets are a type of wood that is often used in various craft and construction projects. This wood has sufficient strength to be used as a support or hook in a variety of applications. With its ability to be easily cut and shaped, wooden elbows are a popular choice for making shelves, tables or small building construction. Additionally, the natural beauty and grain of wood lends a unique aesthetic touch to these projects. With good durability and wide availability, wooden elbows remain a relevant choice in the world of crafts and construction today.', 649000, 'Driver;BBM;Paket Minuman', '2024-02-29 15:32:02', 'Aktif'),
+(4, 'Toyota New Fortuner', '03b835fd7b638e1ad35feea51ebcdf53_4_Foto.jpg', '1', 'Spesifikasi Fortuner', NULL, '', '', 999000, 'Driver;BBM;Paket Minuman', '2024-05-25 07:39:21', 'Aktif'),
+(5, 'Mitsubishi New Pajero Sport', '355818d0ce7f5c24e29b78a8d3386c95_5_Foto.jpg', '1', 'Spesifikasi Mobil', NULL, '', '', 999000, 'Driver\'BBM;Paket Minuman', '2024-05-25 07:40:09', 'Aktif'),
+(6, 'Toyota New Alphard', '625f824810f18b05f4c18d0dd664fba9_6_Foto.jpg', '1', 'Spesifikasi Mobil', NULL, '', '', 2199000, 'Driver;BBM;Paket Minuman', '2024-05-25 07:40:55', 'Aktif'),
+(7, 'Toyota Hi-Ace', '7cfa1bed787c2ba4620b2c422a020ad0_7_Foto.jpg', '1', 'Spesifikasi Mobil', NULL, '', '', 1199000, 'Driver;BBM;Paket Minuman', '2024-05-25 07:41:27', 'Aktif'),
+(8, 'Toyota Innova Reborn', '0634f141e9390432dc90a7be81db4450_8_Foto.jpg', '2', 'Spesifikasi Mobil', NULL, '', '', 699000, 'Driver;BBM;Paket Minuman', '2024-05-25 07:43:11', 'Aktif'),
+(9, 'Toyota Innova Reborn', 'bb862f9247c66e0a4e8ed5a9933e08fc_9_Foto.jpg', '3', 'Spesifikasi', NULL, '', '', 949000, 'Driver;BBM;Paket Minuman', '2024-05-25 07:43:50', 'Aktif'),
+(10, 'Toyota Innova Reborn', 'ee0d7dac8b301510b650b57a15a0ca31_10_Foto.jpg', '4', 'Spesifikasi', NULL, '', '', 899000, 'Driver;BBM;Bunga Hias', '2024-05-25 07:44:31', 'Aktif'),
+(11, 'Toyota Innova Reborn', 'c26036e47eb70b33b1804e5919d33ba1_11_Foto.jpg', '1', 'Spesifikasi Mobil', NULL, '', '', 900000, 'Driver;BBM;Paket Minuman', '2024-05-25 07:45:00', 'Aktif');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pelayanan_kategori`
+-- Table structure for table `tb_pelayanan_kategori`
 --
 
 CREATE TABLE `tb_pelayanan_kategori` (
@@ -320,7 +322,7 @@ CREATE TABLE `tb_pelayanan_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data untuk tabel `tb_pelayanan_kategori`
+-- Dumping data for table `tb_pelayanan_kategori`
 --
 
 INSERT INTO `tb_pelayanan_kategori` (`Id_Pelayanan_Kategori`, `Nama_Pelayanan_Kategori`, `Deskripsi_Pelayanan_Kategori`, `Waktu_Simpan_Data`, `Status`) VALUES
@@ -333,7 +335,7 @@ INSERT INTO `tb_pelayanan_kategori` (`Id_Pelayanan_Kategori`, `Nama_Pelayanan_Ka
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pengaturan_website`
+-- Table structure for table `tb_pengaturan_website`
 --
 
 CREATE TABLE `tb_pengaturan_website` (
@@ -368,7 +370,7 @@ CREATE TABLE `tb_pengaturan_website` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tb_pengaturan_website`
+-- Dumping data for table `tb_pengaturan_website`
 --
 
 INSERT INTO `tb_pengaturan_website` (`Id_Pengaturan_Website`, `Judul_Website`, `Deskripsi_Singkat`, `Deskripsi_Lengkap`, `Email_Admin`, `Email_Customer_Service`, `Nomor_Telpon`, `Nomor_Handphone`, `Alamat_Lengkap`, `Nama_Facebook`, `Url_Facebook`, `Nama_Instagram`, `Url_Instagram`, `Nama_Twitter`, `Url_Twitter`, `Nama_Linkedin`, `Url_Linkedin`, `Nama_Youtube`, `Url_Youtube`, `Embed_Google_Maps`, `Google_Maps_Url`, `Nomor_CS`, `Nama_CS`, `CS_Sebagai`, `Pesan_CS`, `Judul_Website_Eng`, `Deskripsi_Singkat_Eng`, `Deskripsi_Lengkap_Eng`) VALUES
@@ -377,26 +379,26 @@ INSERT INTO `tb_pengaturan_website` (`Id_Pengaturan_Website`, `Judul_Website`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_tentang_kami`
+-- Table structure for table `tb_tentang_kami`
 --
 
 CREATE TABLE `tb_tentang_kami` (
   `Id_Tentang_Kami` int NOT NULL,
-  `Visi` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Misi` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Motto` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Sejarah` text COLLATE utf8mb4_general_ci,
-  `Foto_Tentang_Kami` text COLLATE utf8mb4_general_ci,
-  `Visi_Eng` text COLLATE utf8mb4_general_ci,
-  `Misi_Eng` text COLLATE utf8mb4_general_ci,
-  `Motto_Eng` text COLLATE utf8mb4_general_ci,
-  `Sejarah_Eng` text COLLATE utf8mb4_general_ci,
+  `Visi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Misi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Motto` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Sejarah` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Foto_Tentang_Kami` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Visi_Eng` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Misi_Eng` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Motto_Eng` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `Sejarah_Eng` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `Waktu_Simpan_Data` datetime NOT NULL,
-  `Status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+  `Status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tb_tentang_kami`
+-- Dumping data for table `tb_tentang_kami`
 --
 
 INSERT INTO `tb_tentang_kami` (`Id_Tentang_Kami`, `Visi`, `Misi`, `Motto`, `Sejarah`, `Foto_Tentang_Kami`, `Visi_Eng`, `Misi_Eng`, `Motto_Eng`, `Sejarah_Eng`, `Waktu_Simpan_Data`, `Status`) VALUES
@@ -405,22 +407,22 @@ INSERT INTO `tb_tentang_kami` (`Id_Tentang_Kami`, `Visi`, `Misi`, `Motto`, `Seja
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_testimoni`
+-- Table structure for table `tb_testimoni`
 --
 
 CREATE TABLE `tb_testimoni` (
   `Id_Testimoni` bigint NOT NULL,
-  `Nama` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Instansi` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Testimoni` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Rating` text COLLATE utf8mb4_general_ci NOT NULL,
-  `Foto` text COLLATE utf8mb4_general_ci,
+  `Nama` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Instansi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Testimoni` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Rating` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Foto` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `Waktu_Simpan_Data` datetime NOT NULL,
-  `Status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+  `Status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tb_testimoni`
+-- Dumping data for table `tb_testimoni`
 --
 
 INSERT INTO `tb_testimoni` (`Id_Testimoni`, `Nama`, `Instansi`, `Testimoni`, `Rating`, `Foto`, `Waktu_Simpan_Data`, `Status`) VALUES
@@ -435,143 +437,149 @@ INSERT INTO `tb_testimoni` (`Id_Testimoni`, `Nama`, `Instansi`, `Testimoni`, `Ra
 --
 
 --
--- Indeks untuk tabel `tb_admin`
+-- Indexes for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
   ADD PRIMARY KEY (`Id_Admin`);
 
 --
--- Indeks untuk tabel `tb_banner`
+-- Indexes for table `tb_banner`
 --
 ALTER TABLE `tb_banner`
   ADD PRIMARY KEY (`Id_Banner`);
 
 --
--- Indeks untuk tabel `tb_blog_artikel`
+-- Indexes for table `tb_blog_artikel`
 --
 ALTER TABLE `tb_blog_artikel`
   ADD PRIMARY KEY (`Id_Blog_Artikel`);
 
 --
--- Indeks untuk tabel `tb_data_role`
+-- Indexes for table `tb_data_role`
 --
 ALTER TABLE `tb_data_role`
   ADD PRIMARY KEY (`Id_Role`);
 
 --
--- Indeks untuk tabel `tb_data_role_crud`
+-- Indexes for table `tb_data_role_crud`
 --
 ALTER TABLE `tb_data_role_crud`
   ADD PRIMARY KEY (`Id_Role_CRUD`);
 
 --
--- Indeks untuk tabel `tb_faq`
+-- Indexes for table `tb_faq`
 --
 ALTER TABLE `tb_faq`
   ADD PRIMARY KEY (`Id_Faq`);
 
 --
--- Indeks untuk tabel `tb_galeri`
+-- Indexes for table `tb_galeri`
 --
 ALTER TABLE `tb_galeri`
   ADD PRIMARY KEY (`Id_Galeri`);
 
 --
--- Indeks untuk tabel `tb_kontak`
+-- Indexes for table `tb_kontak`
 --
 ALTER TABLE `tb_kontak`
   ADD PRIMARY KEY (`Id_Kontak`);
 
 --
--- Indeks untuk tabel `tb_newsletter`
+-- Indexes for table `tb_newsletter`
 --
 ALTER TABLE `tb_newsletter`
   ADD PRIMARY KEY (`Id_Newsletter`);
 
 --
--- Indeks untuk tabel `tb_pelayanan`
+-- Indexes for table `tb_pelayanan`
 --
 ALTER TABLE `tb_pelayanan`
   ADD PRIMARY KEY (`Id_Pelayanan`);
 
 --
--- Indeks untuk tabel `tb_pelayanan_kategori`
+-- Indexes for table `tb_pelayanan_kategori`
 --
 ALTER TABLE `tb_pelayanan_kategori`
   ADD PRIMARY KEY (`Id_Pelayanan_Kategori`);
 
 --
--- Indeks untuk tabel `tb_pengaturan_website`
+-- Indexes for table `tb_pengaturan_website`
 --
 ALTER TABLE `tb_pengaturan_website`
   ADD PRIMARY KEY (`Id_Pengaturan_Website`);
 
 --
--- Indeks untuk tabel `tb_tentang_kami`
+-- Indexes for table `tb_tentang_kami`
 --
 ALTER TABLE `tb_tentang_kami`
   ADD PRIMARY KEY (`Id_Tentang_Kami`);
 
 --
--- Indeks untuk tabel `tb_testimoni`
+-- Indexes for table `tb_testimoni`
 --
 ALTER TABLE `tb_testimoni`
   ADD PRIMARY KEY (`Id_Testimoni`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `tb_admin`
+-- AUTO_INCREMENT for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
   MODIFY `Id_Admin` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_banner`
+-- AUTO_INCREMENT for table `tb_banner`
 --
 ALTER TABLE `tb_banner`
   MODIFY `Id_Banner` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_blog_artikel`
+-- AUTO_INCREMENT for table `tb_blog_artikel`
 --
 ALTER TABLE `tb_blog_artikel`
   MODIFY `Id_Blog_Artikel` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_faq`
+-- AUTO_INCREMENT for table `tb_faq`
 --
 ALTER TABLE `tb_faq`
   MODIFY `Id_Faq` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_galeri`
+-- AUTO_INCREMENT for table `tb_galeri`
 --
 ALTER TABLE `tb_galeri`
   MODIFY `Id_Galeri` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pelayanan`
+-- AUTO_INCREMENT for table `tb_newsletter`
+--
+ALTER TABLE `tb_newsletter`
+  MODIFY `Id_Newsletter` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tb_pelayanan`
 --
 ALTER TABLE `tb_pelayanan`
   MODIFY `Id_Pelayanan` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pelayanan_kategori`
+-- AUTO_INCREMENT for table `tb_pelayanan_kategori`
 --
 ALTER TABLE `tb_pelayanan_kategori`
   MODIFY `Id_Pelayanan_Kategori` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_tentang_kami`
+-- AUTO_INCREMENT for table `tb_tentang_kami`
 --
 ALTER TABLE `tb_tentang_kami`
   MODIFY `Id_Tentang_Kami` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_testimoni`
+-- AUTO_INCREMENT for table `tb_testimoni`
 --
 ALTER TABLE `tb_testimoni`
   MODIFY `Id_Testimoni` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
