@@ -50,7 +50,7 @@
                <div class="col-md-4">
                    <div class="contact-form" style="height:90%">
                        <div id="success"></div>
-                       <form method="POST" id="contactForm" novalidate="novalidate">
+                       <form method="POST" novalidate="novalidate">
                            <div class="control-group">
                                <input type="text" class="form-control" name="Nama" id="name" placeholder="Nama" required="required" data-validation-required-message="Masukkan nama anda" />
                                <p class="help-block text-danger"></p>
@@ -64,7 +64,7 @@
                                <p class="help-block text-danger"></p>
                            </div>
                            <div>
-                               <button class="btn btn-custom btn-block" type="submit" id="sendMessageButton">Kirim</button>
+                               <button class="btn btn-custom btn-block" name="submit_kirim_pesan" type="submit">Kirim</button>
                            </div>
                        </form>
                    </div>
@@ -76,3 +76,17 @@
        </div>
    </div>
    <!-- Contact End -->
+
+   <?php
+
+    include 'frontend/function/contact/send_message_whatsapp.php';
+
+    if (isset($_POST['submit_kirim_pesan'])) {
+
+        $input_nama = $_POST['Nama'];
+        $input_nomor_handphone = $_POST['Nomor_Handphone'];
+        $input_pesan = $_POST['Pesan'];
+
+        send_message_whatsapp($data_website, $input_nama, $input_nomor_handphone, $input_pesan);
+    }
+    ?>

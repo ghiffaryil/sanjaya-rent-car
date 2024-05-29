@@ -59,7 +59,12 @@
                                                                         } ?>">Kontak</a>
                 </div>
                 <div class="ml-auto">
-                    <a class="btn btn-custom" href="http://wa.me/<?php echo $data_website['Nomor_CS'] ?>">Hubungi Kami</a>
+                    <?php
+                    $pesan = str_replace(" ","%20",$data_website['Pesan_CS']);
+                    ?>
+                    <a target="_blank" class="btn btn-custom" href="https://api.whatsapp.com/send/?phone=%2B62<?php echo $data_website['Nomor_CS'] ?>&text=<?php echo $pesan ?>">Hubungi Kami</a>
+
+                    <!-- https://api.whatsapp.com/send/?phone=%2B6282167958055&text=Hallo+POST+RentCar+Medan&type=phone_number&app_absent=0 -->
                 </div>
             </div>
         </nav>

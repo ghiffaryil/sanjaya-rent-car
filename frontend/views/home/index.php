@@ -240,7 +240,9 @@
                                                         } ?>">
                             <div class="price-header">
                                 <h3><?php echo $data_pelayanan_kategori['Nama_Pelayanan_Kategori'] ?></h3>
-                                <p><h5><small><i>Mulai dari</i></small></h5></p>
+                                <p>
+                                <h5><small><i>Mulai dari</i></small></h5>
+                                </p>
                                 <h2><span>Rp</span><strong><?php echo substr($harga_pelayanan_termurah, 0, 3); ?></strong><span>K</span></h2>
                             </div>
                             <div class="price-body pt-0 mt-o">
@@ -318,22 +320,36 @@
                     <h3><small> Ingin Sewa Mobil?</small> <br> <big>Hubungi Kami!</big></h3>
                     <form method="POST">
                         <div class="control-group">
-                            <input type="text" class="form-control" placeholder="Nama" required="required" />
+                            <input type="text" class="form-control" name="Nama" placeholder="Nama" required="required" />
                         </div>
                         <div class="control-group">
-                            <input type="email" class="form-control" placeholder="No. Handphone" required="required" />
+                            <input type="text" class="form-control" name="Nomor_Handphone" placeholder="No. Handphone" required="required" />
                         </div>
                         <div class="control-group">
-                            <textarea class="form-control" placeholder="Pesan" required="required"></textarea>
+                            <textarea class="form-control" name="Pesan" placeholder="Pesan" required="required"></textarea>
                         </div>
                         <div>
-                            <button class="btn btn-danger btn-block" type="submit">Kirim</button>
+                            <button class="btn btn-danger btn-block" name="submit_kirim_pesan" type="submit">Kirim</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <?php
+
+    include 'frontend/function/contact/send_message_whatsapp.php';
+
+    if (isset($_POST['submit_kirim_pesan'])) {
+
+        $input_nama = $_POST['Nama'];
+        $input_nomor_handphone = $_POST['Nomor_Handphone'];
+        $input_pesan = $_POST['Pesan'];
+
+        send_message_whatsapp($data_website, $input_nama, $input_nomor_handphone, $input_pesan);
+    }
+    ?>
 </div>
 <!-- Location End -->
 
