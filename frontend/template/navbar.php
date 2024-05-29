@@ -32,7 +32,7 @@
                             }
                         </style>
 
-                        <a href="" class="nav-link text-uppercase dropdown-toggle <?php if ((isset($_GET['view'])) && (($_GET['view'] == "services") OR ($_GET['view'] == "service-detail"))) {
+                        <a href="" class="nav-link text-uppercase dropdown-toggle <?php if ((isset($_GET['view'])) && (($_GET['view'] == "services") OR ($_GET['view'] == "service-per-kategori") OR ($_GET['view'] == "service-detail") )) {
                                                                         echo "active";
                                                                     } ?>" data-toggle="dropdown">Layanan</a>
                         <div class="dropdown-menu" style="background: #0c5460;">
@@ -51,7 +51,7 @@
                                 foreach ($data_hasil as $data) {
                                     $nomor++;
                             ?>
-                                    <a class="dropdown-item" href="?view=service-detail&id=<?php echo $a_hash->encode($data['Id_Pelayanan_Kategori'], "service-detail") ?>"><?php echo $data['Nama_Pelayanan_Kategori'] ?></a>
+                                    <a class="dropdown-item" href="?view=service-per-kategori&id=<?php echo $a_hash->encode($data['Id_Pelayanan_Kategori'], "service-per-kategori") ?>"><?php echo $data['Nama_Pelayanan_Kategori'] ?></a>
                             <?php
                                 }
                             }

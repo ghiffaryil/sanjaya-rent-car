@@ -1,8 +1,9 @@
 <!-- Rent A Car Start -->
 <div class="container-fluid py-5">
     <div class="container">
-    <div class="text-center">
-            <h1 class="mb-2 text-uppercase"><b>Layanan Kami </b> <br> <hr>
+        <div class="text-center">
+            <h1 class="mb-2 text-uppercase"><b>Layanan Kami </b> <br>
+                <hr>
             </h1>
 
         </div>
@@ -126,10 +127,13 @@
                     <div class="col-lg-4 col-md-6 mb-3">
                         <div class="rent-item mb-5">
                             <img class="img-fluid mb-4" src="dashboard/media/pelayanan/cover/<?php echo $data_pelayanan['Cover_Pelayanan'] ?>" alt="" style="height: 400px; width:100%;">
-                            
+
                             <div class=" mb-4">
-                                <h4 class="text-uppercase mb-4"><?php echo $data_pelayanan['Judul_Pelayanan'] ?> </h4>
-                                <small><?php echo $Nama_Kategori?></small>
+                                <h3 class="mb-4"><a href="?view=service-detail&id=<?php echo $a_hash->encode($data_pelayanan['Id_Pelayanan'], 'service-detail'); ?>">
+                                        <?php echo $data_pelayanan['Judul_Pelayanan']; ?>
+                                    </a>
+                                </h3>
+                                <small><?php echo $Nama_Kategori ?></small>
                             </div>
                             <div class="d-flex mb-4">
                                 <?php

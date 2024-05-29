@@ -4,6 +4,35 @@
             display: grid;
         }
     }
+
+    .facts {
+        min-height: 200px;
+            position: relative;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-image: url('frontend/assets/media/img/carousel-3.jpg');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; /* Adjust text color as needed */
+        }
+
+        .facts::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Black overlay with 30% opacity */
+            z-index: 1;
+        }
+
+        .facts > * {
+            position: relative;
+            z-index: 2;
+        }
 </style>
 
 <!-- Carousel Start -->
@@ -49,15 +78,51 @@
 
 
 <!-- About Start -->
-<div class="about">
+<div class="about mt-0 pt-0">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6">
+            <div class="col-lg-12 text-center">
+                <h1>Tentang Kami</h1>
+                <hr class="">
+            </div>
+        </div>
+
+        <div class="row my-4">
+
+            <?php
+            $data_misi = $data_tentang_kami['Misi'];
+            $array_data_misi = explode(';', $data_misi);
+            foreach ($array_data_misi as $misi) {
+
+                $explode_misi = explode(",", $misi);
+            ?>
+                <div class="col-lg-4 col-md-6 px-4">
+                    <div class="row bg-light p-4">
+                        <div class="col-lg-3">
+                            <i class="fa fa-check-circle fa-3x text-orange flex-shrink-0"></i>
+                        </div>
+                        <div class="col-lg-9">
+                            <h4 class="mt-2"><?php echo $explode_misi[0] ?></h4>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <br>
+                            <p><?php echo $explode_misi[1] ?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-lg-5">
                 <div class="about-img">
                     <img src="dashboard/media/tentang_kami/<?php echo $data_tentang_kami['Foto_Tentang_Kami'] ?>" alt="Image">
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-7">
                 <div class="section-header text-left">
                     <p>
                         <font style="size: 60px;">Tentang Kami</font>
@@ -65,6 +130,8 @@
                     <h2><?php echo $data_website['Judul_Website'] ?></h2>
                 </div>
                 <div class="about-content">
+
+
                     <p>
                         <?php echo $data_website['Deskripsi_Lengkap'] ?>
                     </p>
@@ -83,7 +150,7 @@
                             foreach ($data_hasil as $data_layanan) {
                                 $nomor++;
                         ?>
-                                <li><i class="far fa-check-circle"></i><?php echo $data_layanan['Nama_Pelayanan_Kategori'] ?></li>
+                                <li class="mb-3"><i class="fas fa-check-circle"></i><?php echo $data_layanan['Nama_Pelayanan_Kategori'] ?></li>
                         <?php
                             }
                         }
@@ -98,7 +165,7 @@
 <!-- About End -->
 
 <!-- Facts Start -->
-<div class="facts" data-parallax="scroll" data-image-src="frontend/assets/media/img/facts.jpg">
+<div class="facts" data-parallax="scroll" data-image-src="frontend/assets/media/img/blog-3.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6">
@@ -143,82 +210,86 @@
 <!-- Facts End -->
 
 
-<!-- Price Start 
-<div class="price">
+<!-- Price Start  -->
+<div class="price pt-0">
     <div class="container">
         <div class="section-header text-center">
-            <p>Washing Plan</p>
-            <h2>Choose Your Plan</h2>
+            <p>Layanan Kami</p>
+            <h2>Pilih sesuai keinginan anda</h2>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <div class="price-item">
-                    <div class="price-header">
-                        <h3>Basic Cleaning</h3>
-                        <h2><span>$</span><strong>25</strong><span>.99</span></h2>
+            <?php
+
+            $search_field_where = array("Status");
+            $search_criteria_where = array("=");
+            $search_value_where = array("Aktif");
+            $search_connector_where = array("ORDER BY Id_Pelayanan_Kategori DESC LIMIT 3");
+            $result = $a_tambah_baca_update_hapus->baca_data_dengan_filter("tb_pelayanan_kategori", $search_field_where, $search_criteria_where, $search_value_where, $search_connector_where);
+            $nomor = 0;
+
+            if ($result['Status'] == "Sukses") {
+                $data_pelayanan_kategori_hasil = $result['Hasil'];
+                foreach ($data_pelayanan_kategori_hasil as $data_pelayanan_kategori) {
+
+                    $search_field_where = array("Status", "Kategori");
+                    $search_criteria_where = array("=", "=");
+                    $search_value_where = array("Aktif", "$data_pelayanan_kategori[Id_Pelayanan_Kategori]");
+                    $search_connector_where = array("AND", "ORDER BY Harga ASC LIMIT 1");
+                    $result_pelayanan = $a_tambah_baca_update_hapus->baca_data_dengan_filter("tb_pelayanan", $search_field_where, $search_criteria_where, $search_value_where, $search_connector_where);
+
+                    $data_pelayanan_hasil = $result_pelayanan['Hasil'][0];
+                    $harga_pelayanan_termurah  = $data_pelayanan_hasil['Harga'];
+
+            ?>
+
+                    <div class="col-md-4">
+                        <div class="price-item bg-light <?php if ($nomor == 1) {
+                                                    echo "featured-item p-5";
+                                                }else{ echo "mt-3";} ?>">
+                            <div class="price-header">
+                                <h3><?php echo $data_pelayanan_kategori['Nama_Pelayanan_Kategori'] ?></h3>
+
+                                <h2><span>Rp</span><strong><?php echo substr($harga_pelayanan_termurah, 0, 3); ?></strong><span>K</span></h2>
+                            </div>
+                            <div class="price-body">
+                                <ul>
+                                    <li>
+
+                                        <?php
+                                        $fasilitas = $data_pelayanan_hasil['Fasilitas'];
+                                        $array_fasilitas = explode(';', $fasilitas);
+                                        foreach ($array_fasilitas as $item) {
+                                        ?>
+                                    <li>
+                                        <i class="far fa-check-circle"></i>
+                                        <?php echo $item ?>
+                                    </li>
+
+                                <?php
+                                        }
+                                ?>
+                                </li>
+                                </ul>
+                            </div>
+                            <div class="price-footer">
+                                <a class="btn btn-custom" href="">Pesan Sekarang</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="price-body">
-                        <ul>
-                            <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                            <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                            <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                            <li><i class="far fa-times-circle"></i>Interior Wet Cleaning</li>
-                            <li><i class="far fa-times-circle"></i>Window Wiping</li>
-                        </ul>
-                    </div>
-                    <div class="price-footer">
-                        <a class="btn btn-custom" href="">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="price-item featured-item">
-                    <div class="price-header">
-                        <h3>Premium Cleaning</h3>
-                        <h2><span>$</span><strong>35</strong><span>.99</span></h2>
-                    </div>
-                    <div class="price-body">
-                        <ul>
-                            <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                            <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                            <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                            <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
-                            <li><i class="far fa-times-circle"></i>Window Wiping</li>
-                        </ul>
-                    </div>
-                    <div class="price-footer">
-                        <a class="btn btn-custom" href="">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="price-item">
-                    <div class="price-header">
-                        <h3>Complex Cleaning</h3>
-                        <h2><span>$</span><strong>49</strong><span>.99</span></h2>
-                    </div>
-                    <div class="price-body">
-                        <ul>
-                            <li><i class="far fa-check-circle"></i>Seats Washing</li>
-                            <li><i class="far fa-check-circle"></i>Vacuum Cleaning</li>
-                            <li><i class="far fa-check-circle"></i>Exterior Cleaning</li>
-                            <li><i class="far fa-check-circle"></i>Interior Wet Cleaning</li>
-                            <li><i class="far fa-check-circle"></i>Window Wiping</li>
-                        </ul>
-                    </div>
-                    <div class="price-footer">
-                        <a class="btn btn-custom" href="">Book Now</a>
-                    </div>
-                </div>
-            </div>
+
+            <?php
+                    $nomor++;
+                }
+            } ?>
+
         </div>
     </div>
 </div>
-Price End -->
+<!-- Price End -->
 
 
 <!-- Location Start -->
-<div class="location">
+<div class="location bg-light">
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
@@ -279,7 +350,7 @@ Price End -->
 
 
 <!-- Team Start -->
-<div class="team">
+<div class="team d-none">
     <div class="container">
         <div class="section-header text-center">
             <p>Meet Our Team</p>
@@ -402,7 +473,7 @@ Price End -->
 <!-- Testimonial End -->
 
 <!-- Blog Start -->
-<div class="blog">
+<div class="blog bg-light">
     <div class="container">
         <div class="section-header text-center">
             <p>Galeri</p>

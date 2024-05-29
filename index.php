@@ -21,6 +21,10 @@
             background-color: #f2850f;
             /* Add any other styles you want for the orange button */
         }
+        .text-orange {
+            color: #f2850f;
+            /* Add any other styles you want for the orange button */
+        }
     </style>
 
 
