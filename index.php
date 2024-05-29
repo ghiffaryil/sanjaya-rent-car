@@ -16,6 +16,13 @@
     $data_tentang_kami = $result_tentang_kami['Hasil'];
     ?>
 
+    <style>
+        .btn-orange {
+            background-color: #f2850f;
+            /* Add any other styles you want for the orange button */
+        }
+    </style>
+
 
 
     <!-- Top Bar Start -->

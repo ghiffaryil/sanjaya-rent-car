@@ -145,8 +145,8 @@
                                 ?>
 
                             </div>
-                            <button class="btn btn-info px-3" style="cursor:default" disabled><?php echo $a_format_angka->rupiah($data_pelayanan['Harga']); ?>/hari</button>
-                            <button class="btn btn-danger "> Pesan Sekarang </button>
+                            <button class="btn btn-orange text-white text-bold" style="cursor:default" readonly><?php echo $a_format_angka->rupiah($data_pelayanan['Harga']); ?>/hari</button>
+                            <button class="btn btn-info"> Pesan Sekarang </button>
                         </div>
                     </div>
 

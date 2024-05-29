@@ -32,7 +32,7 @@
                             }
                         </style>
 
-                        <a href="" class="nav-link dropdown-toggle <?php if ((isset($_GET['view'])) && (($_GET['view'] == "services") OR ($_GET['view'] == "service-detail"))) {
+                        <a href="" class="nav-link text-uppercase dropdown-toggle <?php if ((isset($_GET['view'])) && (($_GET['view'] == "services") OR ($_GET['view'] == "service-detail"))) {
                                                                         echo "active";
                                                                     } ?>" data-toggle="dropdown">Layanan</a>
                         <div class="dropdown-menu" style="background: #0c5460;">
