@@ -3,7 +3,7 @@
         border-left: 5px solid #ccc;
         padding-left: 15px;
         margin-left: 0;
-        color: #666;
+        /* color: #666; */
         font-style: italic;
         background-color: #f9f9f9;
         padding: 10px 20px;
@@ -13,7 +13,7 @@
         font-size: 1.5em;
         font-weight: bold;
         margin: 0;
-        color: #f2850f;
+        color: dark;
     }
 </style>
 

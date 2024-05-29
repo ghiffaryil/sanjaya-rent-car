@@ -1,15 +1,11 @@
 <div class="nav-bar">
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark" style="text-wrap: nowrap;">
-            <a href="#" class="navbar-brand">MENU</a>
+            <a href="#" class="navbar-brand"><?php echo $data_website['Judul_Website']?></a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav mr-auto">
-                    <img src="frontend/assets/media/logo/logo_main.jpg" style="height: 40px;" alt="">
-                </div>
                 <div class="navbar-nav mr-auto">
                     <a href="index.php" class="text-uppercase nav-item nav-link <?php if (!(isset($_GET['view']))) {
                                                                         echo "active";

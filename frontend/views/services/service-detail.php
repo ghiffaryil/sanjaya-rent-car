@@ -22,13 +22,9 @@ if ($result['Status'] == "Sukses") {
 <div class="container-fluid pt-5">
     <div class="container">
 
-        <div class="text-center">
-
-            <h3 class="text-orange">Detail Mobil</h3>
+        <div class="section-header text-left" style="max-width: 100%;">
             <h1 class="mb-4"><?php echo $data_pelayanan['Judul_Pelayanan'] ?></h1>
-
             <hr>
-
         </div>
 
 

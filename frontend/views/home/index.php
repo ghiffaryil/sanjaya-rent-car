@@ -7,32 +7,18 @@
 
     .facts {
         min-height: 200px;
-            position: relative;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center bottom;
-            background-image: url('frontend/assets/media/img/carousel-3.jpg');
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white; /* Adjust text color as needed */
-        }
-
-        .facts::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Black overlay with 30% opacity */
-            z-index: 1;
-        }
-
-        .facts > * {
-            position: relative;
-            z-index: 2;
-        }
+        position: relative;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        /* background-image: url('frontend/assets/media/img/carousel-3.jpg'); */
+        background-color: #0c5460;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        /* Adjust text color as needed */
+    }
 </style>
 
 <!-- Carousel Start -->
@@ -81,13 +67,17 @@
 <div class="about mt-0 pt-0">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-12 text-center">
-                <h1>Tentang Kami</h1>
-                <hr class="">
+            <div class="section-header text-center" style="max-width:100%">
+                <div>
+                    <h2><?php echo $data_website['Judul_Website'] ?></h2>
+                    <h5 class="text-orange"><i> "<?php echo $data_tentang_kami['Motto'] ?>" </i></h5>
+                    <br>
+                    <hr>
+                </div>
             </div>
         </div>
 
-        <div class="row my-4">
+        <div class="row mb-3">
 
             <?php
             $data_misi = $data_tentang_kami['Misi'];
@@ -116,7 +106,7 @@
             ?>
         </div>
 
-        <div class="row align-items-center">
+        <div class="row align-items-center mt-5">
             <div class="col-lg-5">
                 <div class="about-img">
                     <img src="dashboard/media/tentang_kami/<?php echo $data_tentang_kami['Foto_Tentang_Kami'] ?>" alt="Image">
@@ -215,7 +205,7 @@
     <div class="container">
         <div class="section-header text-center">
             <p>Layanan Kami</p>
-            <h2>Pilih sesuai keinginan anda</h2>
+            <h2>Pilih paket sesuai keinginan anda</h2>
         </div>
         <div class="row">
             <?php
@@ -244,34 +234,33 @@
 
                     <div class="col-md-4">
                         <div class="price-item bg-light <?php if ($nomor == 1) {
-                                                    echo "featured-item p-5";
-                                                }else{ echo "mt-3";} ?>">
+                                                            echo "featured-item p-5";
+                                                        } else {
+                                                            echo "mt-3";
+                                                        } ?>">
                             <div class="price-header">
                                 <h3><?php echo $data_pelayanan_kategori['Nama_Pelayanan_Kategori'] ?></h3>
-
+                                <p><h5><small><i>Mulai dari</i></small></h5></p>
                                 <h2><span>Rp</span><strong><?php echo substr($harga_pelayanan_termurah, 0, 3); ?></strong><span>K</span></h2>
                             </div>
-                            <div class="price-body">
+                            <div class="price-body pt-0 mt-o">
                                 <ul>
-                                    <li>
+                                    <?php
+                                    $fasilitas = $data_pelayanan_hasil['Fasilitas'];
+                                    $array_fasilitas = explode(';', $fasilitas);
+                                    foreach ($array_fasilitas as $item) {
+                                    ?>
+                                        <li>
+                                            <i class="far fa-check-circle"></i>
+                                            <?php echo $item ?>
+                                        </li>
 
-                                        <?php
-                                        $fasilitas = $data_pelayanan_hasil['Fasilitas'];
-                                        $array_fasilitas = explode(';', $fasilitas);
-                                        foreach ($array_fasilitas as $item) {
-                                        ?>
-                                    <li>
-                                        <i class="far fa-check-circle"></i>
-                                        <?php echo $item ?>
-                                    </li>
-
-                                <?php
-                                        }
-                                ?>
-                                </li>
+                                    <?php
+                                    }
+                                    ?>
                                 </ul>
                             </div>
-                            <div class="price-footer">
+                            <div class="price-footer mt-3">
                                 <a class="btn btn-custom" href="">Pesan Sekarang</a>
                             </div>
                         </div>
@@ -327,7 +316,7 @@
             <div class="col-lg-5">
                 <div class="location-form" style="background-image: linear-gradient(to bottom, #269ca2, #0c5460);">
                     <h3><small> Ingin Sewa Mobil?</small> <br> <big>Hubungi Kami!</big></h3>
-                    <form>
+                    <form method="POST">
                         <div class="control-group">
                             <input type="text" class="form-control" placeholder="Nama" required="required" />
                         </div>
@@ -338,7 +327,7 @@
                             <textarea class="form-control" placeholder="Pesan" required="required"></textarea>
                         </div>
                         <div>
-                            <button class="btn btn-custom" type="submit">Kirim</button>
+                            <button class="btn btn-danger btn-block" type="submit">Kirim</button>
                         </div>
                     </form>
                 </div>
@@ -347,89 +336,6 @@
     </div>
 </div>
 <!-- Location End -->
-
-
-<!-- Team Start -->
-<div class="team d-none">
-    <div class="container">
-        <div class="section-header text-center">
-            <p>Meet Our Team</p>
-            <h2>Our Engineers & Workers</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="frontend/assets/media/img/team-1.jpg" alt="Team Image">
-                    </div>
-                    <div class="team-text">
-                        <h2>Donald John</h2>
-                        <p>Engineer</p>
-                        <div class="team-social">
-                            <a href=""><i class="fab fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-facebook-f"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="frontend/assets/media/img/team-2.jpg" alt="Team Image">
-                    </div>
-                    <div class="team-text">
-                        <h2>Adam Phillips</h2>
-                        <p>Engineer</p>
-                        <div class="team-social">
-                            <a href=""><i class="fab fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-facebook-f"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="frontend/assets/media/img/team-3.jpg" alt="Team Image">
-                    </div>
-                    <div class="team-text">
-                        <h2>Thomas Olsen</h2>
-                        <p>Worker</p>
-                        <div class="team-social">
-                            <a href=""><i class="fab fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-facebook-f"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="frontend/assets/media/img/team-4.jpg" alt="Team Image">
-                    </div>
-                    <div class="team-text">
-                        <h2>James Alien</h2>
-                        <p>Worker</p>
-                        <div class="team-social">
-                            <a href=""><i class="fab fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-facebook-f"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Team End -->
-
 
 <!-- Testimonial Start -->
 <div class="testimonial">

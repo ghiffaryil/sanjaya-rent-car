@@ -17,6 +17,10 @@
     ?>
 
     <style>
+        .bg-orange {
+            background: #f2850f;
+            /* Add any other styles you want for the orange button */
+        }
         .btn-orange {
             background-color: #f2850f;
             /* Add any other styles you want for the orange button */
