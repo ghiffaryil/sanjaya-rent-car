@@ -10,9 +10,7 @@
                    <div class="contact-info bg-orange" style="background-color: #f2850f; height:90%">
                        <h2>Alamat Kantor</h2>
                        <div class="contact-info-item">
-                           
-                               <h5 class="text-white"><?php echo $data_website['Alamat_Lengkap'] ?></h5>
-                           
+                           <h5 class="text-white"><?php echo $data_website['Alamat_Lengkap'] ?></h5>
                        </div>
                    </div>
                </div>
