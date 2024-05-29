@@ -1,0 +1,5 @@
+# Database
+app/config/database/database.php
+
+# Konfigurasi
+app/config/konfigurasi/konfigurasi.php

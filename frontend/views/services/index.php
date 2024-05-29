@@ -1,7 +1,12 @@
 <!-- Rent A Car Start -->
 <div class="container-fluid py-5">
     <div class="container">
-        <h1 class="text-center mb-5">Layanan Kami</h1>
+        <div class="text-center">
+            <h1 class="mb-2 text-uppercase"><b>Layanan Kami </b> <br>
+                <hr>
+            </h1>
+
+        </div>
 
         <form action="" method="POST">
             <div class="row">
@@ -122,10 +127,13 @@
                     <div class="col-lg-4 col-md-6 mb-3">
                         <div class="rent-item mb-5">
                             <img class="img-fluid mb-4" src="dashboard/media/pelayanan/cover/<?php echo $data_pelayanan['Cover_Pelayanan'] ?>" alt="" style="height: 400px; width:100%;">
-                            
+
                             <div class=" mb-4">
-                                <h4 class="text-uppercase mb-4"><?php echo $data_pelayanan['Judul_Pelayanan'] ?> </h4>
-                                <small><?php echo $Nama_Kategori?></small>
+                                <h3 class="mb-4"><a href="?view=service-detail&id=<?php echo $a_hash->encode($data_pelayanan['Id_Pelayanan'], 'service-detail'); ?>">
+                                        <?php echo $data_pelayanan['Judul_Pelayanan']; ?>
+                                    </a>
+                                </h3>
+                                <small><?php echo $Nama_Kategori ?></small>
                             </div>
                             <div class="d-flex mb-4">
                                 <?php
@@ -145,8 +153,12 @@
                                 ?>
 
                             </div>
-                            <button class="btn btn-info px-3" style="cursor:default" disabled><?php echo $a_format_angka->rupiah($data_pelayanan['Harga']); ?>/hari</button>
-                            <button class="btn btn-danger "> Pesan Sekarang </button>
+                            <?php
+                            $text_pesan = $data_website['Pesan_CS'] . " " . $data_pelayanan['Judul_Pelayanan'] . "_" . $Nama_Kategori;
+                            $pesan = str_replace(" ", "%20", $text_pesan);
+                            ?>
+                            <button class="btn btn-orange text-white text-bold" style="cursor:default" readonly><?php echo $a_format_angka->rupiah($data_pelayanan['Harga']); ?>/hari</button>
+                            <a target="_blank" class="btn btn-info text-white text-bold" href="https://api.whatsapp.com/send/?phone=%2B62<?php echo $data_website['Nomor_CS'] ?>&text=<?php echo $pesan ?>" > Pesan Sekarang </a>
                         </div>
                     </div>
 

@@ -1,15 +1,11 @@
 <div class="nav-bar">
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark" style="text-wrap: nowrap;">
-            <a href="#" class="navbar-brand">MENU</a>
+            <a href="#" class="navbar-brand"><?php echo $data_website['Judul_Website']?></a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav mr-auto">
-                    <img src="frontend/assets/media/logo/logo_main.jpg" style="height: 40px;" alt="">
-                </div>
                 <div class="navbar-nav mr-auto">
                     <a href="index.php" class="text-uppercase nav-item nav-link <?php if (!(isset($_GET['view']))) {
                                                                         echo "active";
@@ -32,7 +28,7 @@
                             }
                         </style>
 
-                        <a href="" class="nav-link dropdown-toggle <?php if ((isset($_GET['view'])) && (($_GET['view'] == "services") OR ($_GET['view'] == "service-detail"))) {
+                        <a href="" class="nav-link text-uppercase dropdown-toggle <?php if ((isset($_GET['view'])) && (($_GET['view'] == "services") OR ($_GET['view'] == "service-per-kategori") OR ($_GET['view'] == "service-detail") )) {
                                                                         echo "active";
                                                                     } ?>" data-toggle="dropdown">Layanan</a>
                         <div class="dropdown-menu" style="background: #0c5460;">
@@ -51,7 +47,7 @@
                                 foreach ($data_hasil as $data) {
                                     $nomor++;
                             ?>
-                                    <a class="dropdown-item" href="?view=service-detail&id=<?php echo $a_hash->encode($data['Id_Pelayanan_Kategori'], "service-detail") ?>"><?php echo $data['Nama_Pelayanan_Kategori'] ?></a>
+                                    <a class="dropdown-item" href="?view=service-per-kategori&id=<?php echo $a_hash->encode($data['Id_Pelayanan_Kategori'], "service-per-kategori") ?>"><?php echo $data['Nama_Pelayanan_Kategori'] ?></a>
                             <?php
                                 }
                             }
@@ -63,7 +59,12 @@
                                                                         } ?>">Kontak</a>
                 </div>
                 <div class="ml-auto">
-                    <a class="btn btn-custom" href="http://wa.me/<?php echo $data_website['Nomor_CS'] ?>">Hubungi Kami</a>
+                    <?php
+                    $pesan = str_replace(" ","%20",$data_website['Pesan_CS']);
+                    ?>
+                    <a target="_blank" class="btn btn-custom" href="https://api.whatsapp.com/send/?phone=%2B62<?php echo $data_website['Nomor_CS'] ?>&text=<?php echo $pesan ?>">Hubungi Kami</a>
+
+                    <!-- https://api.whatsapp.com/send/?phone=%2B6282167958055&text=Hallo+POST+RentCar+Medan&type=phone_number&app_absent=0 -->
                 </div>
             </div>
         </nav>
