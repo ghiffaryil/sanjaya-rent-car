@@ -70,28 +70,3 @@
         });
     });
 </script>
-<?php
-// if (isset($_POST['submit_add_newsletter'])) {
-
-//     $search_field_where = array("Status", "Email");
-//     $search_criteria_where = array("=", "=");
-//     $search_value_where = array("Aktif", "$_POST[Email]");
-//     $search_connector_where = array("AND", "");
-
-//     $result = $a_tambah_baca_update_hapus->baca_data_dengan_filter("tb_newsletter", $search_field_where, $search_criteria_where, $search_value_where, $search_connector_where);
-
-//     if ($result['Status'] == "Sukses") {
-//         echo "<script>alert('Email anda telah terdaftar');</script>";
-//     } else {
-
-//         $form_field = array("Nama", "Email", "Waktu_Simpan_Data", "Status");
-//         $form_value = array("$_POST[Nama]", "$_POST[Email]", "$Waktu_Sekarang", "Aktif");
-
-//         $result = $a_tambah_baca_update_hapus->tambah_data("tb_newsletter", $form_field, $form_value);
-
-//         if ($result['Status'] == "Sukses") {
-//             echo "<script>alert('Anda telah mendaftar untuk berlangganan');</script>";
-//         }
-//     }
-// }
-?>
