@@ -1,7 +1,11 @@
 <!-- Rent A Car Start -->
 <div class="container-fluid py-5">
     <div class="container">
-        <h1 class="text-center mb-5">Layanan Kami</h1>
+    <div class="text-center">
+            <h1 class="mb-2 text-uppercase"><b>Layanan Kami </b> <br> <hr>
+            </h1>
+
+        </div>
 
         <form action="" method="POST">
             <div class="row">

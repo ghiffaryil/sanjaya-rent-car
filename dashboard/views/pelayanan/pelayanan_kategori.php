@@ -57,7 +57,7 @@ if (isset($_POST['submit_simpan'])) {
 #FUNGSI EDIT DATA (READ)
 if (isset($_GET['edit'])) {
 
-    $result = $a_tambah_baca_update_hapus->baca_data_id("tb_pelayanan_kategori", "Id_Pelayanan_Katetgori", $Get_Id_Primary);
+    $result = $a_tambah_baca_update_hapus->baca_data_id("tb_pelayanan_kategori", "Id_Pelayanan_Kategori", $Get_Id_Primary);
 
     if ($result['Status'] == "Sukses") {
         $edit = $result['Hasil'];
@@ -76,7 +76,7 @@ if (isset($_POST['submit_update'])) {
         $form_field = array("Nama_Pelayanan_Kategori", "Deskripsi_Pelayanan_Kategori");
         $form_value = array("$_POST[Nama_Pelayanan_Kategori]", "$_POST[Deskripsi_Pelayanan_Kategori]");
 
-        $form_field_where = array("Id_Pelayanan_Katetgori");
+        $form_field_where = array("Id_Pelayanan_Kategori");
         $form_criteria_where = array("=");
         $form_value_where = array("$Get_Id_Primary");
         $form_connector_where = array("");
@@ -96,7 +96,7 @@ if (isset($_POST['submit_update'])) {
 #FUNGSI DELETE DATA (DELETE)
 if (isset($_GET['hapus_data_ke_tong_sampah'])) {
 
-    $result = $a_tambah_baca_update_hapus->hapus_data_ke_tong_sampah("tb_pelayanan_kategori", "Id_Pelayanan_Katetgori", $Get_Id_Primary);
+    $result = $a_tambah_baca_update_hapus->hapus_data_ke_tong_sampah("tb_pelayanan_kategori", "Id_Pelayanan_Kategori", $Get_Id_Primary);
 
     if ($result['Status'] == "Sukses") {
         echo "<script>alert('Data Berhasil Terhapus');document.location.href='$kehalaman'</script>";
@@ -107,7 +107,7 @@ if (isset($_GET['hapus_data_ke_tong_sampah'])) {
 
 if (isset($_GET['arsip_data'])) {
 
-    $result = $a_tambah_baca_update_hapus->arsip_data("tb_pelayanan_kategori", "Id_Pelayanan_Katetgori", $Get_Id_Primary);
+    $result = $a_tambah_baca_update_hapus->arsip_data("tb_pelayanan_kategori", "Id_Pelayanan_Kategori", $Get_Id_Primary);
 
     if ($result['Status'] == "Sukses") {
         echo "<script>alert('Data Berhasil Dipindahkan Ke Arsip');document.location.href='$kehalaman'</script>";
@@ -118,7 +118,7 @@ if (isset($_GET['arsip_data'])) {
 
 if (isset($_GET['restore_data_dari_arsip'])) {
 
-    $result = $a_tambah_baca_update_hapus->restore_data_dari_arsip("tb_pelayanan_kategori", "Id_Pelayanan_Katetgori", $Get_Id_Primary);
+    $result = $a_tambah_baca_update_hapus->restore_data_dari_arsip("tb_pelayanan_kategori", "Id_Pelayanan_Kategori", $Get_Id_Primary);
 
     if ($result['Status'] == "Sukses") {
         echo "<script>alert('Data Berhasil Berhasil Di Keluarkan Dari Arsip');document.location.href='$kehalaman'</script>";
@@ -129,7 +129,7 @@ if (isset($_GET['restore_data_dari_arsip'])) {
 
 if (isset($_GET['restore_data_dari_tong_sampah'])) {
 
-    $result = $a_tambah_baca_update_hapus->restore_data_dari_tong_sampah("tb_pelayanan_kategori", "Id_Pelayanan_Katetgori", $Get_Id_Primary);
+    $result = $a_tambah_baca_update_hapus->restore_data_dari_tong_sampah("tb_pelayanan_kategori", "Id_Pelayanan_Kategori", $Get_Id_Primary);
 
     if ($result['Status'] == "Sukses") {
         echo "<script>alert('Data Berhasil Di Restore Dari Tong Sampah');document.location.href='$kehalaman'</script>";
@@ -140,7 +140,7 @@ if (isset($_GET['restore_data_dari_tong_sampah'])) {
 
 if (isset($_GET['hapus_data_permanen'])) {
 
-    $result = $a_tambah_baca_update_hapus->hapus_data_permanen("tb_pelayanan_kategori", "Id_Pelayanan_Katetgori", $Get_Id_Primary);
+    $result = $a_tambah_baca_update_hapus->hapus_data_permanen("tb_pelayanan_kategori", "Id_Pelayanan_Kategori", $Get_Id_Primary);
     if ($result['Status'] == "Sukses") {
         echo "<script>alert('Data Berhasil Terhapus Permanen');document.location.href='$kehalaman'</script>";
     } else {
