@@ -464,8 +464,6 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                             </a>
                                                         </td>
                                                         <td><a href="mailto:<?php echo $data['Email']; ?>" target="_blank" class="btn btn-sm btn-success"><?php echo $data['Email'] ?></a></td>
-                                                        
-                                                        
                                                         <td><?php echo $data['Nomor_Handphone'] ?></td>
                                                         <td><?php echo $data['Instansi'] ?></td>
                                                         <td><?php echo $data['Pesan'] ?></td>

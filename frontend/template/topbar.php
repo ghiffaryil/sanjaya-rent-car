@@ -22,8 +22,8 @@
                                 <i class="fa fa-phone-alt"></i>
                             </div>
                             <div class="top-bar-text">
-                                <h3>Call Us</h3>
-                                <p>+012 345 6789</p>
+                                <h3>Kontak Kami</h3>
+                                <p><?php echo $data_website['Nomor_Handphone']?></p>
                             </div>
                         </div>
                     </div>
@@ -33,8 +33,8 @@
                                 <i class="far fa-envelope"></i>
                             </div>
                             <div class="top-bar-text">
-                                <h3>Email Us</h3>
-                                <p>info@example.com</p>
+                                <h3>Jam Operasional</h3>
+                                <p>Senin-Sabtu / 08.00-17.00</p>
                             </div>
                         </div>
                     </div>

@@ -7,7 +7,7 @@
 		<a href="dashboard.php" class="logo">
 			<!-- logo-->
 			<div class="logo-lg">
-				<span class="light-logo">Sanjaya Rental Mobil</span>
+				<span class="light-logo" style="color: #249ea1;">Sanjaya Rental Mobil</span>
 				<!-- <span class="dark-logo"><img src="images/logo-light-text.png" alt="logo"></span> -->
 			</div>
 		</a>
@@ -26,14 +26,14 @@
 				</li>
 
 				<li class="user user-menu">
-					<a href="?menu=testimoni" class="waves-effect waves-light dropdown-toggle" title="User">
-						<i class="icon-Chat"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+					<a href="?menu=pelayanan" class="waves-effect waves-light dropdown-toggle" title="User">
+						<i class="mdi mdi-newspaper"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
 					</a>
 				</li>
 
 				<li class="user user-menu">
-					<a href="?menu=kontak" class="waves-effect waves-light dropdown-toggle" title="User">
-						<i class="icon-Phone"><span class="path1"></span><span class="path2"></span></i>
+					<a href="?menu=newsletter" class="waves-effect waves-light dropdown-toggle" title="User">
+						<i class="mdi mdi-email"><span class="path1"></span><span class="path2"></span></i>
 					</a>
 				</li>
 			</ul>
@@ -47,17 +47,12 @@
 						<i class="icon-Expand-arrows"><span class="path1"></span><span class="path2"></span></i>
 					</a>
 				</li>
-				
+
 				<!-- User Account-->
-				<li class="dropdown user user-menu">
-					<a href="#" class="waves-effect waves-light dropdown-toggle" data-bs-toggle="dropdown" title="User">
-						<i class="icon-User"><span class="path1"></span><span class="path2"></span></i>
+				<li class="user user-menu">
+					<a href="logout.php" onclick="return confirm('Anda yakin ingin keluar dari halaman ini?')" class="waves-effect waves-light dropdown-toggle" title="User">
+						<i class="mdi mdi-power" style="color: red;"><span class="path1"></span><span class="path2"></span></i>
 					</a>
-					<ul class="dropdown-menu animated flipInX">
-						<li class="user-body">
-							<a class="dropdown-item" href="logout.php"><i class="ti-lock text-muted me-2"></i> Logout</a>
-						</li>
-					</ul>
 				</li>
 
 			</ul>

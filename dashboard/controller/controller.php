@@ -47,7 +47,7 @@ if (isset($_GET['menu'])) {
 		case 'pelayanan':
 			include "views/pelayanan/pelayanan.php";
 			break;
-		
+
 		case 'pelayanan-kategori':
 			include "views/pelayanan/pelayanan_kategori.php";
 			break;
@@ -61,7 +61,7 @@ if (isset($_GET['menu'])) {
 			break;
 
 		default:
-			# code...
+			include "views/home/home.php";
 			break;
 	}
 } else {

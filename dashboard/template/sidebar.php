@@ -25,15 +25,15 @@
 
 				<!-- sidebar menu-->
 				<ul class="sidebar-menu" data-widget="tree">
-					<li >
+					<li class="d-none">
 						<a href="dashboard.php">
 							<i class="mdi mdi-speedometer"><span class="path1"></span><span class="path2"></span></i>
-							<span>Dashboard</span>
+							<span style="color:#249ea1">Dashboard</span>
 						</a>
 					</li>
 
 					<li class="header">Admin Panel</li>
-					<li class="treeview">
+					<li class="treeview d-none">
 						<a href="#">
 							<i class="icon-User"><span class="path1"></span><span class="path2"></span></i>
 							<span>Admin</span>
@@ -42,21 +42,22 @@
 							</span>
 						</a>
 						<ul class="treeview-menu">
-							<li ><a href="?menu=data_admin&tambah"><i class="mdi mdi-account-plus"><span class="path1"></span><span class="path2"></span></i>Tambah Admin</a></li>
-							<li ><a href="?menu=data_admin"><i class="mdi mdi-playlist-check"><span class="path1"></span><span class="path2"></span></i>List Admin</a></li>
-							<li ><a href="?menu=data_role"><i class="mdi mdi-shield"><span class="path1"></span><span class="path2"></span></i>Role Admin</a></li>
+							<li><a href="?menu=data_admin&tambah"><i class="mdi mdi-account-plus"><span class="path1"></span><span class="path2"></span></i>Tambah Admin</a></li>
+							<li><a href="?menu=data_admin"><i class="mdi mdi-playlist-check"><span class="path1"></span><span class="path2"></span></i>List Admin</a></li>
+							<li><a href="?menu=data_role"><i class="mdi mdi-shield"><span class="path1"></span><span class="path2"></span></i>Role Admin</a></li>
 						</ul>
 					</li>
 
 					<li class="treeview">
 						<a href="#">
-							<i class="icon-Settings"><span class="path1"></span><span class="path2"></span></i>
-							<span>Pengaturan</span>
+							<i class="icon-Home"><span class="path1"></span><span class="path2"></span></i>
+							<span>Dashboard</span>
 							<span class="pull-right-container">
 								<i class="fa fa-angle-right pull-right"></i>
 							</span>
 						</a>
 						<ul class="treeview-menu">
+						<li><a href="?menu="><i class="mdi mdi-home"><span class="path1"></span><span class="path2"></span></i>Dashboard</a></li>
 							<li><a href="?menu=setting_website"><i class="mdi mdi-pencil-box"><span class="path1"></span><span class="path2"></span></i>Pengaturan Website</a></li>
 						</ul>
 					</li>
@@ -105,13 +106,13 @@
 					<li class="treeview">
 						<a href="#">
 							<i class="mdi mdi-newspaper"><span class="path1"></span><span class="path2"></span></i>
-							<span>Pelayanan</span>
+							<span>Layanan</span>
 							<span class="pull-right-container">
 								<i class="fa fa-angle-right pull-right"></i>
 							</span>
 						</a>
 						<ul class="treeview-menu">
-							<li><a href="?menu=pelayanan"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Pelayanan</a></li>
+							<li><a href="?menu=pelayanan"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Mobil</a></li>
 							<li><a href="?menu=pelayanan-kategori"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Kategori</a></li>
 						</ul>
 					</li>
@@ -129,7 +130,7 @@
 							<li><a href="?menu=galeri"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Galeri</a></li>
 						</ul>
 					</li>
-					
+
 					<li class="treeview" style="display:none">
 						<a href="#">
 							<i class="mdi mdi-newspaper"><span class="path1"></span><span class="path2"></span></i>
@@ -157,7 +158,7 @@
 						</ul>
 					</li>
 
-					<li class="treeview">
+					<li class="treeview d-none">
 						<a href="#">
 							<i class="mdi mdi-phone"><span class="path1"></span><span class="path2"></span></i>
 							<span>Pesan</span>

@@ -284,12 +284,12 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
         <div class="content-header">
             <div class="d-flex align-items-center">
                 <div class="me-auto">
-                    <h3 class="page-title">Data Pelayanan</h3>
+                    <h3 class="page-title">Layanan / Mobil</h3>
                     <div class="d-inline-block align-items-center">
                         <nav>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="dashboard.php"><i class="mdi mdi-home-outline"></i> Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Data Pelayanan</li>
+                                <li class="breadcrumb-item active" aria-current="page">Layanan / Mobil</li>
                             </ol>
                         </nav>
                     </div>
@@ -504,7 +504,7 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                                                                                             echo $_POST['Fasilitas'];
                                                                                                                         } elseif (isset($_GET['edit'])) {
                                                                                                                             echo $edit['Fasilitas'];
-                                                                                                                        } ?>" placeholder="Driver;Sopir;E-Toll">
+                                                                                                                        }else{ echo "Driver;Sopir;E-Toll";} ?>">
 
                                                         <font style="font-size: 11px; color: gray;">Pisahkan dengan titik koma ( ; )</font>
 
@@ -519,7 +519,7 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                     if (isset($_GET['edit'])) {
                                                         if ($edit['Cover_Pelayanan'] <> "") {
                                                     ?>
-                                                            <img src="media/pelayanan/cover/<?php echo $edit['Cover_Pelayanan']  ?>?time=<?php echo $Waktu_Sekarang ?>" style="width: 150px; height: auto">
+                                                            <img src="media/pelayanan/cover/<?php echo $edit['Cover_Pelayanan']  ?>?time=<?php echo $Waktu_Sekarang ?>" style="width: 80px; height: auto">
                                                             <br><br>
                                                             <i>Klik choose file jika ingin mengganti gambar</i>
                                                     <?php
@@ -619,13 +619,9 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
                                                         </td>
                                                         <td><?php echo $a_format_angka->rupiah($data['Harga']); ?>/hari</td>
                                                         <td>
-                                                            <?php
-                                                            if ($data['Cover_Pelayanan'] <> "") {
-                                                            ?>
-                                                                <img src="media/pelayanan/cover/<?php echo $data['Cover_Pelayanan'] ?>?time=<?php echo $Waktu_Sekarang ?>" style="width: 150px; height: auto">
-                                                            <?php
-                                                            }
-                                                            ?>
+                                                            <?php if ($data['Cover_Pelayanan'] <> "") { ?>
+                                                                <img src="media/pelayanan/cover/<?php echo $data['Cover_Pelayanan'] ?>?time=<?php echo $Waktu_Sekarang ?>" style="width: 80px; height: auto">
+                                                            <?php } ?>
                                                         </td>
                                                     </tr>
                                                 <?php } ?>

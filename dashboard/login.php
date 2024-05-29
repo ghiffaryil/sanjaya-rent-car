@@ -64,13 +64,13 @@ if (isset($_POST['submit_login'])) {
 	<div class="container h-p100">
 		<div class="row align-items-center justify-content-md-center h-p100">
 
-			<div class="col-12">
+			<div class="col-12 p-5">
 				<div class="row justify-content-center g-0">
 					<div class="col-lg-4 col-md-4 col-12">
 						<div class="bg-white rounded10 shadow-lg">
 							<div class="content-top-agile p-20 pb-0">
-								<h2 class="text-danger">Login Admin Sanjaya Rental Mobil</h2>
-								<p class="mb-0">Silahkan Login menggunakan akun Admin</p>
+								<h2 style="color: #249ea1;">Login Admin <br> Sanjaya Rental Mobil</h2>
+								<p class="mb-0" style="color: #249ea1;">Silahkan Login menggunakan akun Admin</p>
 							</div>
 							<div class="p-40">
 								<form method="post">
@@ -89,7 +89,7 @@ if (isset($_POST['submit_login'])) {
 									<div class="row">
 
 										<div class="col-12 text-center">
-											<button type="submit" name="submit_login" class="btn btn-danger mt-10">Login</button>
+											<button type="submit" name="submit_login" class="btn btn-success mt-10">Login</button>
 										</div>
 									</div>
 								</form>

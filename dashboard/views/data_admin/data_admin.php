@@ -319,7 +319,7 @@ $hitung_Terhapus = $hitung_Terhapus['Hasil'];
 													}
 												}
 											</script>
-											<?php if ($u_Sebagai <> "Super Administrator") { ?>
+											<?php if (($u_Sebagai <> "Super Administrator") OR ($edit['Id_Admin'] == "1"))  { ?>
 											<?php } else { ?>
 												<ul class="list-inline">
 													<li class="list-inline-item">
