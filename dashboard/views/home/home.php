@@ -31,7 +31,7 @@
           <div class="box" style="height:500px; overflow-y:scroll;">
             <div class="box-header">
               <h4 class="box-title">Layanan/Mobil</h4>
-              <a class="box-controls pull-right d-md-flex d-none" style="cursor: pointer;" href="?menu=kontak">
+              <a class="box-controls pull-right d-md-flex d-none" style="cursor: pointer;" href="?menu=pelayanan">
                 View All
               </a>
             </div>
@@ -71,13 +71,13 @@
                             <?php } ?>
                           </td>
                           <td>
-                            <a href="<?php echo $kehalaman ?>&edit&id=<?php echo $a_hash->encode($data["Id_Pelayanan"], "?menu=elayanan"); ?>">
-                              <?php
-                              $result_kategori = $a_tambah_baca_update_hapus->baca_data_id("tb_pelayanan_kategori", "Id_Pelayanan_Kategori", $data['Kategori']);
-                              $data_kategori = $result_kategori['Hasil'];
-                              echo   $data['Judul_Pelayanan'] . "<br>" . $data_kategori['Nama_Pelayanan_Kategori'];
-                              ?>
-                            </a>
+
+                            <?php
+                            $result_kategori = $a_tambah_baca_update_hapus->baca_data_id("tb_pelayanan_kategori", "Id_Pelayanan_Kategori", $data['Kategori']);
+                            $data_kategori = $result_kategori['Hasil'];
+                            echo   $data['Judul_Pelayanan'] . "<br><small>" . $data_kategori['Nama_Pelayanan_Kategori'] . "</small><br>" . $a_format_angka->rupiah($data['Harga']);
+                            ?>
+
                           </td>
                         </tr>
                       <?php } ?>
@@ -130,11 +130,7 @@
                         $nomor++; ?>
                         <tr>
                           <td><?php echo $nomor ?></td>
-                          <td>
-                            <a href="<?php echo $kehalaman ?>&edit&id=<?php echo $a_hash->encode($data["Id_Testimoni"], "?menu=testimoni"); ?>">
-                              <?php echo $data['Nama'] ?>
-                            </a>
-                          </td>
+                          <td><?php echo $data['Nama'] ?></td>
                           <td><?php echo $data['Instansi'] ?></td>
                           <td><?php echo $data['Rating'] ?></td>
 
@@ -153,7 +149,7 @@
           <div class="box" style="height:500px; overflow-y:scroll;">
             <div class="box-header">
               <h4 class="box-title">Last 10 Newsletter</h4>
-              <a class="box-controls pull-right d-md-flex d-none" style="cursor: pointer;" href="?menu=testimoni">
+              <a class="box-controls pull-right d-md-flex d-none" style="cursor: pointer;" href="?menu=newsletter">
                 View All
               </a>
             </div>
@@ -163,8 +159,8 @@
                   <thead>
                     <tr>
                       <th style="width: 5%;">No</th>
-                      <th style="width: 25%;">Email</th>
-                      <th style="width: 25%;">Waktu</th>
+                      <th style="width: 55%;">Nama/Email</th>
+                      <th style="width: 40%;">Waktu</th>
                     </tr>
                   </thead>
 
@@ -186,11 +182,7 @@
                         $nomor++; ?>
                         <tr>
                           <td><?php echo $nomor ?></td>
-                          <td>
-                            <a href="<?php echo $kehalaman ?>&edit&id=<?php echo $a_hash->encode($data["Id_Newsletter"], "?menu=newsletter"); ?>">
-                              <?php echo $data['Email'] ?>
-                            </a>
-                          </td>
+                          <td><?php echo $data['Nama'] ?> <br> <small><?php echo $data['Email'] ?></small></td>
                           <td><?php echo tanggal_dan_waktu_24_jam_indonesia($data['Waktu_Simpan_Data']) ?></td>
                         </tr>
                       <?php } ?>
