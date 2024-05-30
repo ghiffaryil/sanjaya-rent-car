@@ -1,10 +1,24 @@
-// function_send_message_whatsapp.php
 <?php
-function send_message_whatsapp($data_website, $input_nama, $input_nomor_handphone, $input_pesan) {
-    $pesan = $data_website['Pesan_CS'] . ", " . $input_nama . "_" . $input_nomor_handphone . "_" . $input_pesan;
-    $normalized_pesan = str_replace(" ", "%20", $pesan);
 
-    $url = "https://api.whatsapp.com/send/?phone=%2B62" . $data_website['Nomor_CS'] . "&text=" . $normalized_pesan;
-    echo "<script>window.open('$url', '_blank');</script>";
+header('Content-Type: application/json');
+if (
+    isset($_POST['Nama']) &&
+    isset($_POST['Nomor_Handphone']) &&
+    isset($_POST['Pesan']) &&
+    isset($_POST['Nomor_CS']) &&
+    isset($_POST['Pesan_CS'])
+) {
+    $pesan = $_POST['Pesan_CS'] . "_" . $_POST['Nama'] . "_" . $_POST['Nomor_Handphone'] . "_" . $_POST['Pesan'];
+    $format_whatsapp_message = str_replace(" ", "%20", $pesan);
+
+    $url = "https://api.whatsapp.com/send/?phone=%2B62" .$_POST['Nomor_CS'] . "&text=" . $format_whatsapp_message;
+
+
+    echo json_encode(array("message" => "Pesan berhasil dikirim.", "status" => "success", "url" => $url));
+
+} else {
+    echo json_encode(array("message" => "Pesan berhasil dikirim.", "status" => "success", "url" => ""));
 }
+
+exit();
 ?>

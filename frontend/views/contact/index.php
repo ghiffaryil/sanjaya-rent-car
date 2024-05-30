@@ -52,19 +52,19 @@
                        <div id="success"></div>
                        <form method="POST" novalidate="novalidate">
                            <div class="control-group">
-                               <input type="text" class="form-control" name="Nama" id="name" placeholder="Nama" required="required" data-validation-required-message="Masukkan nama anda" />
+                               <input type="text" class="form-control" name="Nama" id="Nama" placeholder="Nama" required="required" data-validation-required-message="Masukkan nama anda" />
                                <p class="help-block text-danger"></p>
                            </div>
                            <div class="control-group">
-                               <input type="text" class="form-control" name="Nomor_Handphone" id="email" placeholder="No. Handphone" required="required" data-validation-required-message="Masukkan nomor handphone anda" />
+                               <input type="text" class="form-control" name="Nomor_Handphone" id="Nomor_Handphone" placeholder="No. Handphone" required="required" data-validation-required-message="Masukkan nomor handphone anda" />
                                <p class="help-block text-danger"></p>
                            </div>
                            <div class="control-group">
-                               <textarea class="form-control" name="Pesan" id="message" placeholder="Pesan" required="required" data-validation-required-message="Masukkan pesan anda"></textarea>
+                               <textarea class="form-control" name="Pesan" id="Pesan" placeholder="Pesan" required="required" data-validation-required-message="Masukkan pesan anda"></textarea>
                                <p class="help-block text-danger"></p>
                            </div>
                            <div>
-                               <button class="btn btn-custom btn-block" name="submit_kirim_pesan" type="submit">Kirim</button>
+                               <button class="btn btn-custom btn-block" id="submit_kirim_pesan" name="submit_kirim_pesan" type="submit">Kirim</button>
                            </div>
                        </form>
                    </div>
@@ -77,16 +77,46 @@
    </div>
    <!-- Contact End -->
 
-   <?php
+   <script>
+       $(document).ready(function() {
+           $('#submit_kirim_pesan').on('click', function(e) {
+               e.preventDefault();
 
-    include 'frontend/function/contact/send_message_whatsapp.php';
 
-    if (isset($_POST['submit_kirim_pesan'])) {
+               var inputNama = $('#Nama').val();
+               var inputNomorHandphone = $('#Nomor_Handphone').val();
+               var inputPesan = $('#Pesan').val();
+               if (
+                   inputNama == '' ||
+                   inputNomorHandphone == '' ||
+                   inputPesan == ''
+               ) {
+                   alert('Harap lengkapi data');
+               } else {
+                   $.ajax({
+                       type: 'POST',
+                       url: 'frontend/function/contact/send_message_whatsapp.php',
+                       data: {
+                           "Nama": inputNama,
+                           "Nomor_Handphone": inputNomorHandphone,
+                           "Pesan": inputPesan,
+                           "Nomor_CS": "<?php echo $data_website['Nomor_CS'] ?>",
+                           "Pesan_CS": "<?php echo $data_website['Pesan_CS'] ?>",
+                       },
+                       dataType: 'json',
+                       success: function(response) {
 
-        $input_nama = $_POST['Nama'];
-        $input_nomor_handphone = $_POST['Nomor_Handphone'];
-        $input_pesan = $_POST['Pesan'];
+                           // alert(response.status);
 
-        send_message_whatsapp($data_website, $input_nama, $input_nomor_handphone, $input_pesan);
-    }
-    ?>
+                           if (response.status == "success") {
+                               window.open(response.url, '_blank');
+                               var inputNama = $('#Nama').val('');
+                               var inputNomorHandphone = $('#Nomor_Handphone').val('');
+                               var inputPesan = $('#Pesan').val('');
+                           }
+                       },
+                   });
+               }
+           });
+       });
+   </script>

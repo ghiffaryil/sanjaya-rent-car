@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: application/json');
+
 if (isset($_POST['Nama']) && isset($_POST['Email'])) {
     include '../../../app/config/database/database.php';
     include '../../../app/config/konfigurasi/konfigurasi.php';

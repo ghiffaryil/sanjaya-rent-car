@@ -2,13 +2,13 @@
 include "config/function/init.php";
 //FUNGSI LOGIN
 
-setcookie("Cookie_1_CVRahayuPutra", "", time() + (86400 * 365));
-setcookie("Cookie_2_CVRahayuPutra", "", time() + (86400 * 365));
-setcookie("Cookie_3_CVRahayuPutra", "", time() + (86400 * 365));
+setcookie("Cookie_1_Sanjaya", "", time() + (86400 * 365));
+setcookie("Cookie_2_Sanjaya", "", time() + (86400 * 365));
+setcookie("Cookie_3_Sanjaya", "", time() + (86400 * 365));
 
-unset($_COOKIE["Cookie_1_CVRahayuPutra"]);
-unset($_COOKIE["Cookie_2_CVRahayuPutra"]);
-unset($_COOKIE["Cookie_3_CVRahayuPutra"]);
+unset($_COOKIE["Cookie_1_Sanjaya"]);
+unset($_COOKIE["Cookie_2_Sanjaya"]);
+unset($_COOKIE["Cookie_3_Sanjaya"]);
 
 if (isset($_POST['submit_login'])) {
 
@@ -25,9 +25,9 @@ if (isset($_POST['submit_login'])) {
 		$Login_Sebagai = $a_hash->encode("Admin", "Login_Sebagai");
 		$Password = $a_hash->encode($data_login[0]['Password'], "Password");
 
-		setcookie("Cookie_1_CVRahayuPutra", $Id_User, time() + (86400 * 365)); //LOGIN ID_PENGGUNA
-		setcookie("Cookie_2_CVRahayuPutra", $Password, time() + (86400 * 365)); //LOGIN PASSWORD
-		setcookie("Cookie_3_CVRahayuPutra", $Login_Sebagai, time() + (86400 * 365)); //LOGIN SEBAGAI
+		setcookie("Cookie_1_Sanjaya", $Id_User, time() + (86400 * 365)); //LOGIN ID_PENGGUNA
+		setcookie("Cookie_2_Sanjaya", $Password, time() + (86400 * 365)); //LOGIN PASSWORD
+		setcookie("Cookie_3_Sanjaya", $Login_Sebagai, time() + (86400 * 365)); //LOGIN SEBAGAI
 
 		echo "<script>alert('Login Berhasil');document.location.href='dashboard.php'</script>";
 	} else {

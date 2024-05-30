@@ -320,16 +320,16 @@
                     <h3><small> Ingin Sewa Mobil?</small> <br> <big>Hubungi Kami!</big></h3>
                     <form method="POST">
                         <div class="control-group">
-                            <input type="text" class="form-control" name="Nama" placeholder="Nama" required="required" />
+                            <input type="text" class="form-control" name="Nama" id="Nama" placeholder="Nama" required="required" />
                         </div>
                         <div class="control-group">
-                            <input type="text" class="form-control" name="Nomor_Handphone" placeholder="No. Handphone" required="required" />
+                            <input type="text" class="form-control" name="Nomor_Handphone" id="Nomor_Handphone" placeholder="No. Handphone" required="required" />
                         </div>
                         <div class="control-group">
-                            <textarea class="form-control" name="Pesan" placeholder="Pesan" required="required"></textarea>
+                            <textarea class="form-control" name="Pesan" id="Pesan" placeholder="Pesan" required="required"></textarea>
                         </div>
                         <div>
-                            <button class="btn btn-danger btn-block" name="submit_kirim_pesan" type="submit">Kirim</button>
+                            <button class="btn btn-danger btn-block" name="submit_kirim_pesan" id="submit_kirim_pesan" type="button">Kirim</button>
                         </div>
                     </form>
                 </div>
@@ -337,19 +337,51 @@
         </div>
     </div>
 
-    <?php
+    <script>
+        $(document).ready(function() {
+            $('#submit_kirim_pesan').on('click', function(e) {
+                e.preventDefault();
 
-    // include 'frontend/function/contact/send_message_whatsapp.php';
+                var inputNama = $('#Nama').val();
+                var inputNomorHandphone = $('#Nomor_Handphone').val();
+                var inputPesan = $('#Pesan').val();
 
-    // if (isset($_POST['submit_kirim_pesan'])) {
+                if (
+                    inputNama == '' ||
+                    inputNomorHandphone == '' ||
+                    inputPesan == ''
+                ) {
+                    alert('Harap lengkapi data');
+                } else {
 
-    //     $input_nama = $_POST['Nama'];
-    //     $input_nomor_handphone = $_POST['Nomor_Handphone'];
-    //     $input_pesan = $_POST['Pesan'];
+                    $.ajax({
+                        type: 'POST',
+                        url: 'frontend/function/contact/send_message_whatsapp.php',
+                        data: {
+                            "Nama": inputNama,
+                            "Nomor_Handphone": inputNomorHandphone,
+                            "Pesan": inputPesan,
+                            "Nomor_CS": "<?php echo $data_website['Nomor_CS'] ?>",
+                            "Pesan_CS": "<?php echo $data_website['Pesan_CS'] ?>",
+                        },
+                        dataType: 'json',
+                        success: function(response) {
 
-    //     send_message_whatsapp($data_website, $input_nama, $input_nomor_handphone, $input_pesan);
-    // }
-    ?>
+                            // alert(response.status);
+
+                            if (response.status == "success") {
+                                window.open(response.url, '_blank');
+                                var inputNama = $('#Nama').val('');
+                                var inputNomorHandphone = $('#Nomor_Handphone').val('');
+                                var inputPesan = $('#Pesan').val('');
+                            }
+                        },
+                    });
+
+                }
+            });
+        });
+    </script>
 </div>
 <!-- Location End -->
 

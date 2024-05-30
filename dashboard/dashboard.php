@@ -3,14 +3,14 @@ session_start();
 include "config/function/init.php";
 
 //FUNGSI CEK LOGIN
-if (!((isset($_COOKIE['Cookie_1_CVRahayuPutra'])) and (isset($_COOKIE['Cookie_2_CVRahayuPutra'])) and (isset($_COOKIE['Cookie_3_CVRahayuPutra'])))) {
+if (!((isset($_COOKIE['Cookie_1_Sanjaya'])) and (isset($_COOKIE['Cookie_2_Sanjaya'])) and (isset($_COOKIE['Cookie_3_Sanjaya'])))) {
     echo "<script>alert('Silahkan Login Kembali !!!');document.location.href='login.php?redirect=" . $a_hash->encode_link_kembali($Link_Sekarang) . "';</script>";
     exit();
 } else {
     //UNTUK CEK COOKIE LOGIN APAKAH BENAR DATA TERSEBUT ADA PADA DATABASE
-    $cek_login_Id_User = $a_hash->decode($_COOKIE['Cookie_1_CVRahayuPutra'], "Id_User");
-    $cek_login_Password = $a_hash->decode($_COOKIE['Cookie_2_CVRahayuPutra'], "Password");
-    $cek_login_Login_Sebagai = $a_hash->decode($_COOKIE['Cookie_3_CVRahayuPutra'], "Login_Sebagai");
+    $cek_login_Id_User = $a_hash->decode($_COOKIE['Cookie_1_Sanjaya'], "Id_User");
+    $cek_login_Password = $a_hash->decode($_COOKIE['Cookie_2_Sanjaya'], "Password");
+    $cek_login_Login_Sebagai = $a_hash->decode($_COOKIE['Cookie_3_Sanjaya'], "Login_Sebagai");
 
     $search_field_where = array("Status", "Id_Admin", "Password");
     $search_criteria_where = array("=", "=", "=");

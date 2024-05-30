@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer pt-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6">
@@ -17,16 +17,17 @@
             <div class="col-lg-4 col-md-6">
                 <div class="footer-link">
                     <h2>Menu</h2>
+                    <a href="index.php">Beranda</a>
                     <a href="?view=about">Tentang Kami</a>
                     <a href="?view=services">Layanan</a>
                     <a href="?view=contact">Kontak</a>
-                    <a href="?view=testimonials">Testimoni</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="footer-newsletter">
                     <h2>Newsletter</h2>
-                    <form id="newsletterForm">
+                    <small>Daftarkan diri anda untuk mendapat informasi terbaru dari kami</small>
+                    <form id="newsletterForm" class="mt-2">
                         <input id="Nama" class="form-control" placeholder="Full Name" name="Nama" required>
                         <input id="Email" class="form-control" placeholder="Email" name="Email" required>
                         <button type="submit" id="submit_add_newsletter" class="btn btn-custom">Submit</button>
@@ -47,26 +48,30 @@
             var inputNama = $('#Nama').val();
             var inputEmail = $('#Email').val();
 
-            $.ajax({
-                type: 'POST',
-                url: 'frontend/function/newsletter/add_newsletter.php',
-                data: {
-                    "Nama": inputNama,
-                    "Email": inputEmail
-                },
-                dataType: 'json',
-                success: function(response) {
-                    alert(response.message);
+            if (inputNama == '' || inputEmail == '') {
+                alert('Harap lengkapi data!')
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: 'frontend/function/newsletter/add_newsletter.php',
+                    data: {
+                        "Nama": inputNama,
+                        "Email": inputEmail
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        alert(response.message);
 
-                    if (response.status == "success") {
-                        var inputNama = $('#Nama').val('');
-                        var inputEmail = $('#Email').val('');
+                        if (response.status == "success") {
+                            var inputNama = $('#Nama').val('');
+                            var inputEmail = $('#Email').val('');
+                        }
+                    },
+                    error: function() {
+                        alert('Maaf, terjadi Kesalahan!');
                     }
-                },
-                error: function() {
-                    alert('Maaf, terjadi Kesalahan!');
-                }
-            });
+                });
+            }
         });
     });
 </script>
